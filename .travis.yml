@@ -1,0 +1,11 @@
+language: java
+deploy:
+  provider: cloudfoundry
+  username: ajmalahamed55@gmail.com
+  password: Chainsys@2020
+  api: https://api.run.pivotal.io
+  organization: libraryapp
+  space: development
+  manifest: manifest.yml
+script:
+  - mvn clean org.jacoco:jacoco-maven-plugin:prepare-agent install
