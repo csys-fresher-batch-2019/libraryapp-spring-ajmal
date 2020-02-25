@@ -1,6 +1,6 @@
 ---
 applications:
-- name: api.libraryapp.in
+- name: api.elibraryapp.in
   buildpack: java_buildpack
   memory: 1G
   instances: 1
