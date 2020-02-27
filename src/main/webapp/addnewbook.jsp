@@ -65,7 +65,7 @@
 						name="bookcopies" required>
 				</div>
 				<div class="form-group">
-					<label for="date">Purchased Date:</label> <input type="date"
+					<label for="date">Published Date:</label> <input type="date"
 						class="form-control" placeholder="Enter Date" id="date"
 						name="purchaseddate" required>
 				</div>

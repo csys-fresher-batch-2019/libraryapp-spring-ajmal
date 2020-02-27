@@ -54,13 +54,7 @@ public class AddNewBookServlet extends HttpServlet {
 			e.printStackTrace();
 			response.sendRedirect("addnewbook.jsp?errorMessage="+e.getMessage());
 		}
-//		PrintWriter out = response.getWriter();
-//		out.println(request.getContextPath());
-		
-		//HttpSession session = request.getSession();
-		//session.setAttribute("LOGGED_IN_USER", "admin");
-		
-		//response.sendRedirect("addnewbook.jsp?infoMessage=Successfully Added New Book");
+
 	}
 
 }
