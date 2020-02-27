@@ -25,12 +25,24 @@
           <form action="AdminRegistrationServlet" method="GET">
           <div class="form-group">
             <label for="name" name="adminname">Admin Name:</label>
-            <input type="name" class="form-control" placeholder="Enter name" id="name" required autofocus>
+            <input type="name" class="form-control" placeholder="Enter name" id="name" name="adminname"  required autofocus>
           </div>
           <div class="form-group">
-            <label for="name"name="admin">admin:</label>
-            <input type="name" class="form-control" placeholder="Enter admin" id="name" required>
-          </div>
+					<label for="date">DOB:</label> <input type="date"
+						class="form-control" placeholder="Enter Date" id="date" name="dob"
+						required>
+						</div>
+						<div class="form-group">
+					<label for="email">Mail Id:</label> <input type="email"
+						class="form-control" placeholder="Enter Mail Id" id="email"
+						name="email" required>
+				</div>
+				<div class="form-group">
+					<label for="number">Phone Number:</label> <input type="number"
+						class="form-control" placeholder="Enter Phone Number" id="number"
+						name="mobilenumber" required>
+				</div>
+          
           <button type="submit" class="btn btn-primary">Submit</button>
         </form>
     

@@ -7,35 +7,26 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.chainsys.libraryapp.service.AdminDetailsService;
+
 /**
  * Servlet implementation class AddNewAdminServlet
  */
 @WebServlet("/AddNewAdminServlet")
 public class AddNewAdminServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-       
-    /**
-     * @see HttpServlet#HttpServlet()
-     */
-    public AddNewAdminServlet() {
-        super();
-        // TODO Auto-generated constructor stub
-    }
 
-	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
-	 */
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		response.getWriter().append("Served at: ").append(request.getContextPath());
-	}
-
-	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
-	 */
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		doGet(request, response);
+	protected void doGet(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+		//AdminDetailsService ob = new AdminDetailsService();
+//		String bookName = request.getParameter("adminname");
+//		String bookName = request.getParameter("bookname");
+//		String bookName = request.getParameter("bookname");
+//		String bookName = request.getParameter("bookname");
+//		String bookName = request.getParameter("bookname");
+//		String bookName = request.getParameter("bookname");
+		response.sendRedirect("adminhime.jsp?infoMessage=AdminHome");
+		
 	}
 
 }

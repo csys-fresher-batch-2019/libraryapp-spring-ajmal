@@ -24,12 +24,13 @@ public class AddNewStudentServlet extends HttpServlet {
 		String studentDepartment = request.getParameter("department");
 		String date = request.getParameter("dob");
 		Date dob=Date.valueOf(date);
-//		LocalDate dob=LocalDate.parse(date);
 		String studentMailId = request.getParameter("mailid");
 		String mobilenumber = request.getParameter("mobilenumber");
-		long mobileNumber = Integer.valueOf(mobilenumber);
-		String yearofjoin = request.getParameter("yearofjoin");
-		int yearOfJoin = Integer.valueOf(yearofjoin);
+		//long mobileNumber=Long.parseLong(request.getParameter("mobilenumber"));
+		//long mobileNumber = long.valueOf(mobilenumber);
+		long mobileNumber=Long.valueOf(mobilenumber);
+		String yearOfJoin = request.getParameter("yearofjoin");
+		int yOfJoin = Integer.valueOf(yearOfJoin);
 
 		    StudentDetails obj=new StudentDetails();
 		    obj.setStudentName(studentName);
@@ -37,7 +38,7 @@ public class AddNewStudentServlet extends HttpServlet {
 		    obj.setDateOfBirth(dob.toLocalDate());
 		    obj.setStudentMailId(studentMailId);
 		    obj.setMobileNumber(mobileNumber);
-		    obj.setYearOfJoin(yearOfJoin);
+		    obj.setYearOfJoin(yOfJoin);
 		    
 		    try {
 				ob.addStudentDetails(obj);
