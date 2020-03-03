@@ -45,7 +45,7 @@
   <td>${BOOK_LIST.bookAutherName}</td>
   <td>${BOOK_LIST.bookEdition}</td>
   <td>Rs.${BOOK_LIST.bookPrice}</td>
-  <td>${BOOK_LIST.bookPurchasedDate}</td>
+  <td>${BOOK_LIST.bookPublishedDate}</td>
   <td>${BOOK_LIST.bookCopies}</td>
   <td>${BOOK_LIST.bookPages}</td>
   </tr>

@@ -8,6 +8,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import com.chainsys.libraryapp.model.StudentFineSummaryDetails;
 import com.chainsys.libraryapp.service.SummaryDetailsService;
@@ -22,8 +23,10 @@ public class TotalFineOfAStudentServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		SummaryDetailsService ob = new SummaryDetailsService();
-		String studentid = request.getParameter("studentid");
-		int studentId = Integer.parseInt(studentid);
+		HttpSession ses = request.getSession();
+		int studentId = (int) ses.getAttribute("studentId");
+		// String studentid = request.getParameter("studentid");
+		// int studentId = Integer.parseInt(studentid);
 		int totalFineAmount = 0;
 		String name = null;
 		ArrayList<StudentFineSummaryDetails> out = null;
@@ -34,16 +37,16 @@ public class TotalFineOfAStudentServlet extends HttpServlet {
 				totalFineAmount = totalFineAmount + details.getFineAmount();
 			}
 			if (out.isEmpty()) {
-				request.setAttribute("OUT", out);
-				request.getRequestDispatcher("displayallbooksadmin.jsp?infoMessage=ListBooks").forward(request,
+				response.sendRedirect("studenthome.jsp?infoMessage=No Book Taken");
+			} else {
+				request.setAttribute("Details", out);
+				request.setAttribute("TotalFine", totalFineAmount);
+				request.getRequestDispatcher("totalfineofstudent.jsp?infoMessage=TotalFineDetails").forward(request,
 						response);
-			}else
-			{
-				response.sendRedirect("studenthome.jsp?infoMessage=No Book Taken");	
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
-			response.sendRedirect("studenthome.jsp?errorMessage="+e.getMessage());	
+			response.sendRedirect("studenthome.jsp?errorMessage=" + e.getMessage());
 		}
 
 		System.out.println("StudentName : " + name);
@@ -59,7 +62,7 @@ public class TotalFineOfAStudentServlet extends HttpServlet {
 		// HttpSession session = request.getSession();
 		// session.setAttribute("LOGGED_IN_USER", "admin");
 
-		//response.sendRedirect("totalfineofstudent.jsp?infoMessage=Fine Calculated");
+		// response.sendRedirect("totalfineofstudent.jsp?infoMessage=Fine Calculated");
 	}
 
 }

@@ -37,7 +37,7 @@ public class StudentDetailsService {
 		}
 		Boolean valid=studentDetailsDAO.studentLogin(studentId, dateOfBirth);
 			if(valid == null) {
-				throw new Exception("Invalid Email/Date Of Birth");
+				throw new Exception("Invalid StudentId/Date Of Birth");
 			}
 		return valid;
 		

@@ -8,6 +8,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import com.chainsys.libraryapp.service.StudentDetailsService;
 
@@ -29,6 +30,10 @@ public class StudentLoginServlet extends HttpServlet {
 		StudentDetailsService ob = new StudentDetailsService();
 		String studentid = request.getParameter("studentid");
 		int studentId = Integer.valueOf(studentid);
+	
+		HttpSession s = request.getSession();
+		s.setAttribute("studentId", studentId);
+	
 		String date = request.getParameter("dob");
 		LocalDate dateOfBirth = LocalDate.parse(date);
 		try {
@@ -37,7 +42,7 @@ public class StudentLoginServlet extends HttpServlet {
 			if (out) {
 				response.sendRedirect("studenthome.jsp?infoMessage=LoggedIn");
 			} else {
-				response.sendRedirect("studentlogin.jsp?errorMessage=Invalid MailId or DatrOfBirth");
+				response.sendRedirect("studentlogin.jsp?errorMessage=Invalid StudentId or DatrOfBirth");
 			}
 		} catch (Exception e) {
 			e.printStackTrace();

@@ -46,6 +46,7 @@
   
     <h2><center>Admin Login</center></h2>
     <center><jsp:include page="message.jsp"></jsp:include></center>
+    
   <form action="AdminLoginServlet" method="GET">
       <div class="form-group">
         <label for="email">Email:</label>

@@ -7,6 +7,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import com.chainsys.libraryapp.service.SummaryDetailsService;
 
@@ -19,11 +20,13 @@ public class CheckLimtOfStudentServlet extends HttpServlet {
 	   
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		SummaryDetailsService ob=new SummaryDetailsService();
-		String studentid=request.getParameter("studentid");
-		int studentId=Integer.parseInt(studentid);
+		HttpSession ses=request.getSession();
+		int studentId=(int) ses.getAttribute("studentId");
+		//String studentid=request.getParameter("studentid");
+		//int studentId=Integer.parseInt(studentid);
 		try {
 			ob.limitForStudent(studentId);
-			response.sendRedirect("checkstudentlimit.jsp?infoMessage=Your limt has not exceeds");	
+			response.sendRedirect("checkstudentlimit.jsp?infoMessage=Your limt has not exceeded");	
 		} catch (Exception e) {
 			e.printStackTrace();
 			response.sendRedirect("checkstudentlimit.jsp?infoMessage="+e.getMessage());

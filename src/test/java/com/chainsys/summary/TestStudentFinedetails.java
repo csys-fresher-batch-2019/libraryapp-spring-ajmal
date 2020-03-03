@@ -6,7 +6,7 @@ import java.util.Scanner;
 import com.chainsys.libraryapp.model.StudentFineSummaryDetails;
 import com.chainsys.libraryapp.service.SummaryDetailsService;
 
-public class TetStudentFinedetails {
+public class TestStudentFinedetails {
 
 	public static void main(String[] args) throws Exception {
 		SummaryDetailsService ob= new SummaryDetailsService();

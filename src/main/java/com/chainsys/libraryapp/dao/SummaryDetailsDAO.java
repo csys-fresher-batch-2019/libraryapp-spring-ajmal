@@ -17,17 +17,16 @@ import com.chainsys.libraryapp.model.SummaryDetailsDueDate;
 import com.chainsys.libraryapp.model.SummaryDetailsStudentDetails;
 
 public interface SummaryDetailsDAO {
-	
-	
-	
+
 	@SqlUpdate("insert into details(std_id,book_id,book_count) values(?,?,book_count_sq.nextval)")
 	public boolean addNewEntry(int studentId, int bookId) throws DbException;
 
 	@SqlQuery("select due_date from details where book_id=:bookId and std_id=:stdId and status=0")
-	public LocalDate returnDueDate(@Bind("stdId") int studentId,@Bind("bookId") int BookId) throws DbException;
+	public LocalDate returnDueDate(@Bind("stdId") int studentId, @Bind("bookId") int BookId) throws DbException;
 
 	@SqlUpdate("update details set fine_amt=:fineAmount ,status=1,returned_date=sysdate where book_id =:bookId and std_id =:studentId and status=0")
-	public void updateReturnRecord(@Bind("studentId")int studentId,@Bind("bookId") int bookId, @Bind("fineAmount")Integer fineAmount) throws DbException;
+	public void updateReturnRecord(@Bind("studentId") int studentId, @Bind("bookId") int bookId,
+			@Bind("fineAmount") Integer fineAmount) throws DbException;
 
 	@SqlQuery("select  d.std_id,s.std_name,s.std_dept,s.std_mob_no,d.book_id,b.book_name,d.issue_date,d.due_date from details d,books b ,student s where s.std_id=d.std_id and d.status=0 and b.book_id=d.book_id and d.book_id=?")
 	@RegisterRowMapper(SummaryDetailsDueDateRowMapper.class)
@@ -43,8 +42,6 @@ public interface SummaryDetailsDAO {
 
 	@SqlQuery("select 1 from details where  std_id=? and book_id=?  and status=0")
 	public Integer bookTaken(int studentId, int bookId) throws DbException;
-	
-	
 
 	@SqlQuery("select  s.std_name,b.book_name,b.book_id,b.book_cat,d.issue_date,d.due_date from details d,books b ,student s where s.std_id=d.std_id and d.status=0 and b.book_id=d.book_id and d.std_id=?")
 	@RegisterRowMapper(StudentDetailsStudentFineRowMapper.class)

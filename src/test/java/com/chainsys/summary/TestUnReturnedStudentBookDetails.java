@@ -14,7 +14,8 @@ public abstract class TestUnReturnedStudentBookDetails {
 		System.out.print("Enter the Student id : ");
 		int studentId=sc.nextInt();
 		
-		ArrayList<SummaryDetailsStudentDetails> out = ob.unReturnedStudentBookDetails(studentId);
+		ArrayList<SummaryDetailsStudentDetails> out =null;
+				out=ob.unReturnedStudentBookDetails(studentId);
 		if(out != null)
 		{
 			for (SummaryDetailsStudentDetails details : out) {
