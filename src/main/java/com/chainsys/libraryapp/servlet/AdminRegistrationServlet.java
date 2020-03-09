@@ -8,7 +8,6 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 
 /**
  * Servlet implementation class AdminRegistrationServlet
@@ -22,7 +21,7 @@ public class AdminRegistrationServlet extends HttpServlet {
 
 		PrintWriter out = response.getWriter();
 		out.println(request.getContextPath());
-		HttpSession session = request.getSession();
+		// HttpSession session = request.getSession();
 		response.sendRedirect("adminhome.jsp?infoMessage=RegistratednewAdmin");
 	}
 }
