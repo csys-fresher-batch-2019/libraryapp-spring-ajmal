@@ -1,25 +1,34 @@
 package com.chainsys.libraryapp.service;
 
-import org.jdbi.v3.core.Jdbi;
-
 import com.chainsys.libraryapp.dao.AdminDetailsDAO;
+import com.chainsys.libraryapp.dao.DAOFactory;
+import com.chainsys.libraryapp.exception.DbException;
+import com.chainsys.libraryapp.exception.ServiceException;
 import com.chainsys.libraryapp.model.AdminDetails;
-import com.chainsys.libraryapp.util.Connectionutil;
 
 public class AdminDetailsService {
-	
-	private Jdbi jdbi = Connectionutil.getJdbi();
-	private AdminDetailsDAO adminDetailsDAO= jdbi.onDemand(AdminDetailsDAO.class);
-	
-	public void addNewAdmin(AdminDetails admindetails)throws Exception
-	{
-		adminDetailsDAO.addNewAdmin(admindetails);
-	}
-	public Boolean userLogin(String mailId,String password)throws Exception{
-		Boolean valid = adminDetailsDAO.userLogin(mailId, password);
-		if(valid == null) {
-			throw new Exception("Invalid Email/Password");
+
+	private AdminDetailsDAO adminDetailsDAO = DAOFactory.getAdminDetailDAO();
+
+	public void addNewAdmin(AdminDetails admindetails) throws ServiceException {
+		try {
+			adminDetailsDAO.addNewAdmin(admindetails);
+		} catch (DbException e) {
+			throw new ServiceException("Unable to add admin", e);
 		}
+	}
+
+	public Boolean userLogin(String mailId, String password) throws ServiceException {
+		Boolean valid = null;
+		try {
+			valid = adminDetailsDAO.userLogin(mailId, password);
+			if (valid == null || !valid) {
+				throw new ServiceException("Invalid Email/Password");
+			}
+		} catch (DbException e) {
+			throw new ServiceException("Unable to Login", e);
+		}
+
 		return valid;
 	}
 }

@@ -46,6 +46,17 @@
 						class="form-control" placeholder="Enter Phone Number" id="number"
 						name="mobilenumber" required>
 				</div>
+				<div class="form-group">
+					<label for="password">Password:</label> <input type="text"
+						id="password" class="fadeIn third" name="password"
+						placeholder="Enter Password">
+				</div>
+
+				<div class="form-group">
+					<label for="text">Gender:</label> <input type="radio" name="gender"
+						value="Male">male <input type="radio" name="gender"
+						value="Female">female
+				</div>
 
 				<button type="submit" class="btn btn-primary">Submit</button>
 			</form>

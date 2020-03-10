@@ -102,31 +102,31 @@ public class LibraryappApplicationTests {
 		Integer actual = summaryDetailsDAO.bookTaken(studentId, bookId);
 		Assert.assertEquals(expected, actual);
 	}
-	
+
 	@Test
 	@Ignore
 	public void bookCountTest() throws Exception {
-		int bookId=101;
-		Integer expected=41;
-		Integer actual=ob.noOfBooksAvailable(bookId);
+		int bookId = 101;
+		Integer expected = 41;
+		Integer actual = ob.noOfBooksAvailable(bookId);
 		Assert.assertEquals(expected, actual);
 	}
-	
+
 	@Test
-	public void searchBookTest() throws Exception{
-		int bookId=101;
-		BookDetails expected=new BookDetails();
+	public void searchBookTest() throws Exception {
+		int bookId = 101;
+		BookDetails expected = new BookDetails();
 		expected.setBookId(bookId);
 		expected.setBookName("Electronic Devices and Circuits");
 		expected.setBookCategory("Electronics");
 		expected.setBookAutherName("Boylested,Robert.L");
 		expected.setBookEdition(1);
 		expected.setBookCopies(42);
-		String date="1998-02-15";
+		String date = "1998-02-15";
 		expected.setBookPublishedDate(LocalDate.parse(date));
 		expected.setBookPrice(200);
 		expected.setBookPages(342);
-		BookDetails bookdetail=obj1.displayBook(bookId);
+		BookDetails bookdetail = obj1.displayBook(bookId);
 		Assert.assertEquals(expected, bookdetail);
 	}
 
