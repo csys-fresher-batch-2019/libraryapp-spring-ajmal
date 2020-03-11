@@ -1,7 +1,7 @@
 package com.chainsys.libraryapp.servlet;
 
 import java.io.IOException;
-import java.util.ArrayList;
+import java.util.List;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -29,7 +29,7 @@ public class TotalFineOfAStudentServlet extends HttpServlet {
 		// int studentId = Integer.parseInt(studentid);
 		int totalFineAmount = 0;
 		String name = null;
-		ArrayList<StudentFineSummaryDetails> out = null;
+		List<StudentFineSummaryDetails> out = null;
 		try {
 			out = ob.totalFineAmountOfStudent(studentId);
 			for (StudentFineSummaryDetails details : out) {

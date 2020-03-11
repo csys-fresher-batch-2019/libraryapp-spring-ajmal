@@ -5,6 +5,7 @@ import com.chainsys.libraryapp.dao.DAOFactory;
 import com.chainsys.libraryapp.exception.DbException;
 import com.chainsys.libraryapp.exception.ServiceException;
 import com.chainsys.libraryapp.model.AdminDetails;
+import com.chainsys.libraryapp.util.Constant;
 
 public class AdminDetailsService {
 
@@ -12,9 +13,9 @@ public class AdminDetailsService {
 
 	public void addNewAdmin(AdminDetails admindetails) throws ServiceException {
 		try {
-			adminDetailsDAO.addNewAdmin(admindetails);
+			adminDetailsDAO.save(admindetails);
 		} catch (DbException e) {
-			throw new ServiceException("Unable to add admin", e);
+			throw new ServiceException(Constant.UNABLE_TO_ADD, e);
 		}
 	}
 
@@ -23,10 +24,10 @@ public class AdminDetailsService {
 		try {
 			valid = adminDetailsDAO.userLogin(mailId, password);
 			if (valid == null || !valid) {
-				throw new ServiceException("Invalid Email/Password");
+				throw new ServiceException(Constant.INVALID_EMAIL_PASSWORD);
 			}
 		} catch (DbException e) {
-			throw new ServiceException("Unable to Login", e);
+			throw new ServiceException(Constant.UNABLE_TO_LOGIN, e);
 		}
 
 		return valid;

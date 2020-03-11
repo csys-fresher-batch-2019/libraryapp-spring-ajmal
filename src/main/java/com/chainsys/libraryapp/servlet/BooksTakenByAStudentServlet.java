@@ -1,7 +1,7 @@
 package com.chainsys.libraryapp.servlet;
 
 import java.io.IOException;
-import java.util.ArrayList;
+import java.util.List;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -27,13 +27,14 @@ public class BooksTakenByAStudentServlet extends HttpServlet {
 		HttpSession session = request.getSession();
 		int studentId = (int) session.getAttribute("studentId");
 		System.out.println(studentId);
-		ArrayList<SummaryDetailsStudentDetails> out = null;
+		List<SummaryDetailsStudentDetails> out = null;
 		try {
 			out = ob.unReturnedStudentBookDetails(studentId);
 			System.out.println(out);
 			if (out != null) {
 				request.setAttribute("BOOK_LIST", out);
-				request.getRequestDispatcher("bookstakenbystudent.jsp?infoMessage=ListBooks").forward(request, response);
+				request.getRequestDispatcher("bookstakenbystudent.jsp?infoMessage=ListBooks").forward(request,
+						response);
 			} else {
 				System.out.println("This Student has not taken any book");
 				response.sendRedirect("studenthome.jsp?infoMessage=You have not taken any book");

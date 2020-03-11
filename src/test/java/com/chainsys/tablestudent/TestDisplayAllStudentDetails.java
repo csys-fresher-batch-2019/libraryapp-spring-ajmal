@@ -4,16 +4,17 @@ import java.util.ArrayList;
 
 import com.chainsys.libraryapp.model.StudentDetails;
 import com.chainsys.libraryapp.service.StudentDetailsService;
+import com.chainsys.libraryapp.util.LoggerUtil;
 
 public class TestDisplayAllStudentDetails {
 
 	public static void main(String[] args) throws Exception {
-		StudentDetailsService ob=new StudentDetailsService();
+		LoggerUtil logger = LoggerUtil.getInstance();
+		StudentDetailsService ob = new StudentDetailsService();
 		ArrayList<StudentDetails> list = new ArrayList<StudentDetails>();
-		list=ob.displayAllStudents();
-		for(StudentDetails details:list)
-		{
-			System.out.println(details);
+		list = ob.displayAllStudents();
+		for (StudentDetails details : list) {
+			logger.info(details);
 		}
 
 	}

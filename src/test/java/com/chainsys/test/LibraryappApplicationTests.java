@@ -52,7 +52,7 @@ public class LibraryappApplicationTests {
 	public void checkStudentTest() {
 		int studentId = 1001;
 		int expected = 1;
-		int actual = obj.findByStudentId(studentId);
+		int actual = obj.checkBookId(studentId);
 		Assert.assertEquals(expected, actual);
 	}
 
@@ -61,7 +61,7 @@ public class LibraryappApplicationTests {
 	public void checkStudent1Test() {
 		int studentId = 1121;
 		Integer expected = null;
-		Integer actual = obj.findByStudentId(studentId);
+		Integer actual = obj.checkBookId(studentId);
 		Assert.assertEquals(expected, actual);
 	}
 
@@ -70,7 +70,7 @@ public class LibraryappApplicationTests {
 	public void checkBookTest() {
 		int bookId = 101;
 		int expected = 1;
-		int actual = obj1.findByBookId(bookId);
+		int actual = obj1.checkBookId(bookId);
 		Assert.assertEquals(expected, actual);
 	}
 
@@ -79,7 +79,7 @@ public class LibraryappApplicationTests {
 	public void checkBook1Test() {
 		int bookId = 1231;
 		Integer expected = null;
-		Integer actual = obj1.findByBookId(bookId);
+		Integer actual = obj1.checkBookId(bookId);
 		Assert.assertEquals(expected, actual);
 	}
 
@@ -126,7 +126,7 @@ public class LibraryappApplicationTests {
 		expected.setBookPublishedDate(LocalDate.parse(date));
 		expected.setBookPrice(200);
 		expected.setBookPages(342);
-		BookDetails bookdetail = obj1.displayBook(bookId);
+		BookDetails bookdetail = obj1.checkBookId(bookId);
 		Assert.assertEquals(expected, bookdetail);
 	}
 

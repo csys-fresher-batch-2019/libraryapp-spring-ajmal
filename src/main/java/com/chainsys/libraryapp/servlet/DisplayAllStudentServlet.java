@@ -1,7 +1,7 @@
 package com.chainsys.libraryapp.servlet;
 
 import java.io.IOException;
-import java.util.ArrayList;
+import java.util.List;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -21,7 +21,7 @@ public class DisplayAllStudentServlet extends HttpServlet {
 	   
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		StudentDetailsService ob=new StudentDetailsService();
-		ArrayList<StudentDetails> student=null;
+		List<StudentDetails> student=null;
 		try {
 			student=ob.displayAllStudents();
 			System.out.println(student);

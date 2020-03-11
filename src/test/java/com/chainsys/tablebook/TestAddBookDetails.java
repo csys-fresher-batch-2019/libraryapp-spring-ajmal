@@ -5,35 +5,35 @@ import java.util.Scanner;
 
 import com.chainsys.libraryapp.model.BookDetails;
 import com.chainsys.libraryapp.service.BookDetailsService;
-
+import com.chainsys.libraryapp.util.LoggerUtil;
 
 public class TestAddBookDetails {
 
 	public static void main(String[] args) throws Exception {
-		
-		BookDetailsService obj=new BookDetailsService();
-		
-System.out.print("Entre values \nBook Name :");
-	Scanner sc= new Scanner(System.in);
-    String bookName = sc.nextLine();
-    System.out.print("Category : ");
-    String bookCategory= sc.nextLine();
-    System.out.print("Author Name : ");
-    String bookAuthor=sc.nextLine();
-    System.out.print("Edition : ");
-    int bookEdition=sc.nextInt();
-    System.out.print("Price of the book : ");
-    int bookPrice=sc.nextInt();
-    System.out.print("Copies : ");
-    int bookCopies=sc.nextInt();
-    System.out.print("Pages of book : ");
-    int bookPages=sc.nextInt();
-    sc.nextLine();
-    System.out.print("Purchashed Date : ");
-    String bookPublishedDate = sc.next();
-    Date date = Date.valueOf(bookPublishedDate);
-    
-		BookDetails ob=new BookDetails();
+		LoggerUtil logger = LoggerUtil.getInstance();
+		BookDetailsService obj = new BookDetailsService();
+
+		logger.debug("Entre values \nBook Name :");
+		Scanner sc = new Scanner(System.in);
+		String bookName = sc.nextLine();
+		System.out.print("Category : ");
+		String bookCategory = sc.nextLine();
+		logger.debug("Author Name : ");
+		String bookAuthor = sc.nextLine();
+		logger.debug("Edition : ");
+		int bookEdition = sc.nextInt();
+		logger.debug("Price of the book : ");
+		int bookPrice = sc.nextInt();
+		logger.debug("Copies : ");
+		int bookCopies = sc.nextInt();
+		logger.debug("Pages of book : ");
+		int bookPages = sc.nextInt();
+		sc.nextLine();
+		logger.debug("Purchashed Date : ");
+		String bookPublishedDate = sc.next();
+		Date date = Date.valueOf(bookPublishedDate);
+
+		BookDetails ob = new BookDetails();
 		ob.setBookName(bookName);
 		ob.setBookCategory(bookCategory);
 		ob.setBookAutherName(bookAuthor);
@@ -42,14 +42,11 @@ System.out.print("Entre values \nBook Name :");
 		ob.setBookCopies(bookCopies);
 		ob.setBookPrice(bookPrice);
 		ob.setBookPublishedDate(date.toLocalDate());
-		
-		
-		obj.addNewBook(ob);	
-		System.out.println("Added New Book");
+
+		obj.addNewBook(ob);
+		logger.info("Added New Book");
 		sc.close();
-    
-	
+
 	}
 
 }
-

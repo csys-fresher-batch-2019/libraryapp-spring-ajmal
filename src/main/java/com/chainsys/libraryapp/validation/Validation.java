@@ -17,7 +17,7 @@ public class Validation {
 	 * @throws ValidationException
 	 */
 	public static void checkBookId(int bookId) throws ValidationException {
-		Integer cont = bookDetailsDAO.findByBookId(bookId);
+		Integer cont = bookDetailsDAO.checkBookId(bookId);
 		if (cont == null) {
 			throw new ValidationException("Invalid Book Id");
 		}
@@ -30,7 +30,7 @@ public class Validation {
 	 * @throws ValidationException
 	 */
 	public static void checkStudentId(int studentId) throws ValidationException {
-		Integer cont = studentDetailsDAO.findByStudentId(studentId);
+		Integer cont = studentDetailsDAO.checkStudentId(studentId);
 		if (cont == null) {
 			throw new ValidationException("Invalid Student Id");
 		}

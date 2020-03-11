@@ -2,7 +2,7 @@ package com.chainsys.libraryapp.service;
 
 import java.time.LocalDate;
 import java.time.temporal.ChronoUnit;
-import java.util.ArrayList;
+import java.util.List;
 
 import com.chainsys.libraryapp.dao.BookDetailsDAO;
 import com.chainsys.libraryapp.dao.DAOFactory;
@@ -37,7 +37,7 @@ public class SummaryDetailsService {
 		} catch (ValidationException e) {
 			throw new ServiceException(e.getMessage(), e);
 		} catch (DbException e) {
-			throw new ServiceException("Unable to AddNewEntry", e);
+			throw new ServiceException(Constant.UNABLE_TO_ADD_NEW_ENTRY, e);
 		}
 
 	}
@@ -49,7 +49,7 @@ public class SummaryDetailsService {
 			Validation.checkStudentId(studentId);
 			LocalDate dueDate = summaryDetailsDAO.returnDueDate(studentId, bookId);
 			if (dueDate == null) {
-				throw new ServiceException("You have not taken the book");
+				throw new ServiceException(Constant.YOU_HAVE_NOT_TAKEN_THE_BOOK);
 			}
 			LocalDate returnedDate = LocalDate.now();
 			if (returnedDate.isAfter(dueDate)) {
@@ -64,7 +64,7 @@ public class SummaryDetailsService {
 		} catch (ValidationException e) {
 			throw new ServiceException(e.getMessage(), e);
 		} catch (DbException e) {
-			throw new ServiceException("Unable to Calculate Fine Amount", e);
+			throw new ServiceException(Constant.UNABLE_TO_CALCULATE_FINE_AMOUNT, e);
 		}
 
 		return fine;
@@ -76,20 +76,20 @@ public class SummaryDetailsService {
 			Validation.checkStudentId(studentId);
 			summaryDetailsDAO.updateReturnRecord(studentId, bookId, fineAmount);
 		} catch (DbException e) {
-			throw new ServiceException("Unable to Update", e);
+			throw new ServiceException(Constant.UNABLE_TO_UPDATE, e);
 		} catch (ValidationException e) {
 			throw new ServiceException(e.getMessage(), e);
 		}
 	}
 
-	public ArrayList<SummaryDetailsDueDate> unReturnedBookDetails(int bookId) throws ServiceException {
+	public List<SummaryDetailsDueDate> unReturnedBookDetails(int bookId) throws ServiceException {
 		try {
 			Validation.checkBookId(bookId);
 			return summaryDetailsDAO.unReturnedBookDetails(bookId);
 		} catch (ValidationException e) {
 			throw new ServiceException(e.getMessage(), e);
 		} catch (DbException e) {
-			throw new ServiceException("Unable to Return Book", e);
+			throw new ServiceException(Constant.UNABLE_TO_RETURN_BOOK, e);
 		}
 
 	}
@@ -98,18 +98,18 @@ public class SummaryDetailsService {
 		try {
 			return summaryDetailsDAO.totalFineAmount();
 		} catch (DbException e) {
-			throw new ServiceException("Unable to Calculate", e);
+			throw new ServiceException(Constant.UNABLE_TO_CALCULATE, e);
 		}
 	}
 
-	public ArrayList<SummaryDetailsStudentDetails> unReturnedStudentBookDetails(int studentId) throws ServiceException {
+	public List<SummaryDetailsStudentDetails> unReturnedStudentBookDetails(int studentId) throws ServiceException {
 		try {
 			Validation.checkStudentId(studentId);
 			return summaryDetailsDAO.unReturnedStudentBookDetails(studentId);
 		} catch (ValidationException e) {
 			throw new ServiceException(e.getMessage(), e);
 		} catch (DbException e) {
-			throw new ServiceException("Unable to Display", e);
+			throw new ServiceException(Constant.UNABLE_TO_DISPLAY, e);
 		}
 
 	}
@@ -121,10 +121,10 @@ public class SummaryDetailsService {
 			Validation.checkStudentId(studentId);
 			bookTaken = summaryDetailsDAO.bookTaken(studentId, bookId);
 			if (bookTaken != null) {
-				throw new ServiceException("You have not taken the book");
+				throw new ServiceException(Constant.YOU_HAVE_NOT_TAKEN_THE_BOOK);
 			}
 		} catch (DbException e) {
-			throw new ServiceException("Unable to show", e);
+			throw new ServiceException(Constant.UNABLE_TO_SHOW, e);
 		} catch (ValidationException e) {
 			throw new ServiceException(e.getMessage(), e);
 		}
@@ -132,10 +132,10 @@ public class SummaryDetailsService {
 		// return bookTaken != null;
 	}
 
-	public ArrayList<StudentFineSummaryDetails> totalFineAmountOfStudent(int studentId) throws ServiceException {
+	public List<StudentFineSummaryDetails> totalFineAmountOfStudent(int studentId) throws ServiceException {
 
 		LocalDate returnedDate = LocalDate.now();
-		ArrayList<StudentFineSummaryDetails> out = null;
+		List<StudentFineSummaryDetails> out = null;
 		try {
 			Validation.checkStudentId(studentId);
 			out = summaryDetailsDAO.totalFineAmountOfStudent(studentId);
@@ -148,7 +148,7 @@ public class SummaryDetailsService {
 				}
 			}
 		} catch (DbException e) {
-			throw new ServiceException("Unable to Display", e);
+			throw new ServiceException(Constant.UNABLE_TO_DISPLAY, e);
 		} catch (ValidationException e) {
 			throw new ServiceException(e.getMessage(), e);
 		}
@@ -164,7 +164,7 @@ public class SummaryDetailsService {
 		} catch (ValidationException e) {
 			throw new ServiceException(e.getMessage(), e);
 		} catch (DbException e) {
-			throw new ServiceException("Unable to Calculate", e);
+			throw new ServiceException(Constant.UNABLE_TO_CALCULATE, e);
 		}
 
 	}
@@ -174,12 +174,12 @@ public class SummaryDetailsService {
 			Validation.checkStudentId(studentId);
 			int limit = summaryDetailsDAO.limitForStudent(studentId);
 			if (limit > 5) {
-				throw new ServiceException("You limit for talking the books has Exceeded");
+				throw new ServiceException(Constant.YOU_LIMIT_FOR_TALKING_THE_BOOKS_HAS_EXCEEDED);
 			}
 		} catch (ValidationException e) {
 			throw new ServiceException(e.getMessage(), e);
 		} catch (DbException e) {
-			throw new ServiceException("Unable to Calculate", e);
+			throw new ServiceException(Constant.UNABLE_TO_CALCULATE, e);
 		}
 
 	}

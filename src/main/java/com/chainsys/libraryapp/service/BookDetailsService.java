@@ -1,6 +1,6 @@
 package com.chainsys.libraryapp.service;
 
-import java.util.ArrayList;
+import java.util.List;
 
 import com.chainsys.libraryapp.dao.BookDetailsDAO;
 import com.chainsys.libraryapp.dao.DAOFactory;
@@ -8,20 +8,20 @@ import com.chainsys.libraryapp.exception.DbException;
 import com.chainsys.libraryapp.exception.ServiceException;
 import com.chainsys.libraryapp.exception.ValidationException;
 import com.chainsys.libraryapp.model.BookDetails;
+import com.chainsys.libraryapp.util.Constant;
 import com.chainsys.libraryapp.validation.Validation;
 
 public class BookDetailsService {
 
+
 	// private BookDetailsDAO bookDetailsDAO = new BookDetailsDAOImp();
-	private BookDetailsDAO bookDetailsDAO=DAOFactory.getBookDetailDAO();
-//	private Jdbi jdbi = Connectionutil.getJdbi();
-//	private BookDetailsDAO bookDetailsDAO = jdbi.onDemand(BookDetailsDAO.class);
+	private BookDetailsDAO bookDetailsDAO = DAOFactory.getBookDetailDAO();
 
 	public void addNewBook(BookDetails bookdetails) throws ServiceException {
 		try {
-			bookDetailsDAO.addNewBook(bookdetails);
+			bookDetailsDAO.save(bookdetails);
 		} catch (DbException e) {
-			throw new ServiceException("Unable to Add Book", e);
+			throw new ServiceException(Constant.UNABLE_TO_ADD_BOOK, e);
 		}
 	}
 
@@ -33,35 +33,35 @@ public class BookDetailsService {
 			throw new ServiceException(e.getMessage(), e);
 		} catch (DbException e) {
 			e.printStackTrace();
-			throw new ServiceException("Unable to Update", e);
+			throw new ServiceException(Constant.UNABLE_TO_UPDATE, e);
 		}
 	}
 
 	public BookDetails displayBook(int bookId) throws ServiceException {
 		try {
 			Validation.checkBookId(bookId);
-			return bookDetailsDAO.displayBook(bookId);
+			return bookDetailsDAO.findByBookId(bookId);
 		} catch (ValidationException e) {
 			throw new ServiceException(e.getMessage(), e);
 		} catch (DbException e) {
-			throw new ServiceException("Unable to Dispay", e);
+			throw new ServiceException(Constant.UNABLE_TO_DISPLAY, e);
 		}
 
 	}
 
-	public ArrayList<BookDetails> displayAllBooks() throws ServiceException {
+	public List<BookDetails> displayAllBooks() throws ServiceException {
 		try {
-			return bookDetailsDAO.displayAllBooks();
+			return bookDetailsDAO.findAll();
 		} catch (DbException e) {
-			throw new ServiceException("Unable to Dispay", e);
+			throw new ServiceException(Constant.UNABLE_TO_DISPLAY, e);
 		}
 	}
 
-	public ArrayList<BookDetails> searchByName(String bookName) throws ServiceException {
+	public List<BookDetails> searchByName(String bookName) throws ServiceException {
 		try {
-			return bookDetailsDAO.searchByName(bookName);
+			return bookDetailsDAO.findByName(bookName);
 		} catch (DbException e) {
-			throw new ServiceException("Unable to Search", e);
+			throw new ServiceException(Constant.UNABLE_TO_SEARCH, e);
 		}
 
 	}

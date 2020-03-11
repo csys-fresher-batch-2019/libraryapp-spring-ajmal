@@ -1,7 +1,7 @@
 package com.chainsys.libraryapp.service;
 
 import java.time.LocalDate;
-import java.util.ArrayList;
+import java.util.List;
 
 import com.chainsys.libraryapp.dao.DAOFactory;
 import com.chainsys.libraryapp.dao.StudentDetailsDAO;
@@ -9,6 +9,7 @@ import com.chainsys.libraryapp.exception.DbException;
 import com.chainsys.libraryapp.exception.ServiceException;
 import com.chainsys.libraryapp.exception.ValidationException;
 import com.chainsys.libraryapp.model.StudentDetails;
+import com.chainsys.libraryapp.util.Constant;
 import com.chainsys.libraryapp.validation.Validation;
 
 public class StudentDetailsService {
@@ -17,29 +18,29 @@ public class StudentDetailsService {
 
 	public void addStudentDetails(StudentDetails studentdetails) throws ServiceException {
 		try {
-			studentDetailsDAO.addStudentDetails(studentdetails);
+			studentDetailsDAO.save(studentdetails);
 		} catch (DbException e) {
-			throw new ServiceException("Unable to Add", e);
+			throw new ServiceException(Constant.UNABLE_TO_ADD, e);
 		}
 	}
 
 	public StudentDetails displayStudentDetail(int studentId) throws ServiceException {
 		try {
 			Validation.checkStudentId(studentId);
-			return studentDetailsDAO.displayStudentDetail(studentId);
+			return studentDetailsDAO.findById(studentId);
 		} catch (ValidationException e) {
 			throw new ServiceException(e.getMessage(), e);
 		} catch (DbException e) {
-			throw new ServiceException("Unable to Dispay", e);
+			throw new ServiceException(Constant.UNABLE_TO_DISPLAY, e);
 		}
 
 	}
 
-	public ArrayList<StudentDetails> displayAllStudents() throws ServiceException {
+	public List<StudentDetails> displayAllStudents() throws ServiceException {
 		try {
-			return studentDetailsDAO.displayAllStudents();
+			return studentDetailsDAO.findAll();
 		} catch (DbException e) {
-			throw new ServiceException("Unable to Dispay", e);
+			throw new ServiceException(Constant.UNABLE_TO_DISPLAY, e);
 		}
 	}
 
@@ -49,12 +50,12 @@ public class StudentDetailsService {
 			Validation.checkStudentId(studentId);
 			valid = studentDetailsDAO.studentLogin(studentId, dateOfBirth);
 			if (valid == null) {
-				throw new ServiceException("Invalid StudentId/Date Of Birth");
+				throw new ServiceException(Constant.INVALID_STUDENT_ID_DATE_OF_BIRTH);
 			}
 		} catch (ValidationException e) {
 			throw new ServiceException(e.getMessage(), e);
 		} catch (DbException e) {
-			throw new ServiceException("Unable to Login", e);
+			throw new ServiceException(Constant.UNABLE_TO_LOGIN, e);
 		}
 
 		return valid;

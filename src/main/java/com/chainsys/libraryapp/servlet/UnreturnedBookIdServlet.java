@@ -1,7 +1,7 @@
 package com.chainsys.libraryapp.servlet;
 
 import java.io.IOException;
-import java.util.ArrayList;
+import java.util.List;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -22,7 +22,7 @@ public class UnreturnedBookIdServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		SummaryDetailsService ob = new SummaryDetailsService();
-		ArrayList<SummaryDetailsDueDate> out = null;
+		List<SummaryDetailsDueDate> out = null;
 		String bookid = request.getParameter("bookid");
 		int bookId = Integer.valueOf(bookid);
 		System.out.println(bookId);
