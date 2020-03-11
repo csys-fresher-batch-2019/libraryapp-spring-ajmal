@@ -3,14 +3,16 @@ package com.chainsys.tablestudent;
 import java.sql.Date;
 import java.util.Scanner;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import com.chainsys.libraryapp.model.StudentDetails;
 import com.chainsys.libraryapp.service.StudentDetailsService;
-import com.chainsys.libraryapp.util.LoggerUtil;
 
 public class TestAddNewStudent {
+	private final static Logger logger = LoggerFactory.getLogger(TestAddNewStudent.class);
 
 	public static void main(String[] args) throws Exception {
-		LoggerUtil logger = LoggerUtil.getInstance();
 		logger.debug("Entre values \nStudent Name :");
 		Scanner sc = new Scanner(System.in);
 		String studentName = sc.nextLine();

@@ -2,13 +2,15 @@ package com.chainsys.tableadmin;
 
 import java.util.Scanner;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import com.chainsys.libraryapp.service.AdminDetailsService;
-import com.chainsys.libraryapp.util.LoggerUtil;
 
 public class TestAdminLogin {
+	private final static Logger logger = LoggerFactory.getLogger(TestAdminLogin.class);
 
 	public static void main(String[] args) throws Exception {
-		LoggerUtil logger = LoggerUtil.getInstance();
 		AdminDetailsService ob = new AdminDetailsService();
 		Scanner sc = new Scanner(System.in);
 		logger.debug("Enter your mail id : ");

@@ -1,18 +1,21 @@
 package com.chainsys.tablebook;
 
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import com.chainsys.libraryapp.model.BookDetails;
 import com.chainsys.libraryapp.service.BookDetailsService;
-import com.chainsys.libraryapp.util.LoggerUtil;
 
 public class TestSearchByName {
+	private final static Logger logger = LoggerFactory.getLogger(TestSearchByName.class);
 
 	public static void main(String[] args) throws Exception {
-		LoggerUtil logger = LoggerUtil.getInstance();
 		BookDetailsService ob = new BookDetailsService();
-		ArrayList<BookDetails> list = new ArrayList<>();
+		List<BookDetails> list = new ArrayList<>();
 		logger.debug("Enter the name to be searched : ");
 		Scanner sc = new Scanner(System.in);
 		String bookName = sc.next();
@@ -20,7 +23,7 @@ public class TestSearchByName {
 		boolean result = false;
 		for (BookDetails details : list) {
 			result = true;
-			logger.info(details);
+			logger.info("",details);
 		}
 		if (!result) {
 

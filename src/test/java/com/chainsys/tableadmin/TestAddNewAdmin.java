@@ -3,14 +3,16 @@ package com.chainsys.tableadmin;
 import java.time.LocalDate;
 import java.util.Scanner;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import com.chainsys.libraryapp.model.AdminDetails;
 import com.chainsys.libraryapp.service.AdminDetailsService;
-import com.chainsys.libraryapp.util.LoggerUtil;
 
 public abstract class TestAddNewAdmin {
+	private final static Logger logger = LoggerFactory.getLogger(TestAddNewAdmin.class);
 
 	public static void main(String[] args) throws Exception {
-		LoggerUtil logger = LoggerUtil.getInstance();
 		AdminDetailsService ob = new AdminDetailsService();
 		AdminDetails obj = new AdminDetails();
 		logger.debug("Creation Of New Admin \n Enter Name : ");

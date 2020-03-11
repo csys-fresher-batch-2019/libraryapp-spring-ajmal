@@ -2,6 +2,9 @@ package com.chainsys.libraryapp.service;
 
 import java.util.List;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import com.chainsys.libraryapp.dao.BookDetailsDAO;
 import com.chainsys.libraryapp.dao.DAOFactory;
 import com.chainsys.libraryapp.exception.DbException;
@@ -13,7 +16,7 @@ import com.chainsys.libraryapp.validation.Validation;
 
 public class BookDetailsService {
 
-
+	private final static Logger logger = LoggerFactory.getLogger(BookDetailsService.class);
 	// private BookDetailsDAO bookDetailsDAO = new BookDetailsDAOImp();
 	private BookDetailsDAO bookDetailsDAO = DAOFactory.getBookDetailDAO();
 
@@ -32,7 +35,8 @@ public class BookDetailsService {
 		} catch (ValidationException e) {
 			throw new ServiceException(e.getMessage(), e);
 		} catch (DbException e) {
-			e.printStackTrace();
+			//e.printStackTrace();
+			logger.error("",e);
 			throw new ServiceException(Constant.UNABLE_TO_UPDATE, e);
 		}
 	}

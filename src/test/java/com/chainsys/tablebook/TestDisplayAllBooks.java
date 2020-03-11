@@ -1,21 +1,24 @@
 package com.chainsys.tablebook;
 
 import java.util.ArrayList;
+import java.util.List;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import com.chainsys.libraryapp.model.BookDetails;
 import com.chainsys.libraryapp.service.BookDetailsService;
-import com.chainsys.libraryapp.util.LoggerUtil;
 
 public class TestDisplayAllBooks {
+	private final static Logger logger = LoggerFactory.getLogger(TestDisplayAllBooks.class);
 
 	public static void main(String[] args) throws Exception {
-		LoggerUtil logger = LoggerUtil.getInstance();
 		BookDetailsService ob = new BookDetailsService();
-		ArrayList<BookDetails> out = new ArrayList<BookDetails>();
+		List<BookDetails> out = new ArrayList<BookDetails>();
 		out = ob.displayAllBooks();
 		logger.info("All Books Details");
 		for (BookDetails details : out) {
-			logger.info(details);
+			logger.info("", details);
 		}
 
 	}

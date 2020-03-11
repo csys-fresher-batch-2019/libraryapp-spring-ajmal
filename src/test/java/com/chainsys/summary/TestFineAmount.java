@@ -2,13 +2,15 @@ package com.chainsys.summary;
 
 import java.util.Scanner;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import com.chainsys.libraryapp.service.SummaryDetailsService;
-import com.chainsys.libraryapp.util.LoggerUtil;
 
 public class TestFineAmount {
+	private final static Logger logger = LoggerFactory.getLogger(TestFineAmount.class);
 
 	public static void main(String[] args) throws Exception {
-		LoggerUtil logger = LoggerUtil.getInstance();
 		SummaryDetailsService ob = new SummaryDetailsService();
 		Scanner sc = new Scanner(System.in);
 		logger.debug("Enter the BookId : ");

@@ -1,27 +1,30 @@
 package com.chainsys.summary;
 
-import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import com.chainsys.libraryapp.model.SummaryDetailsStudentDetails;
 import com.chainsys.libraryapp.service.SummaryDetailsService;
-import com.chainsys.libraryapp.util.LoggerUtil;
 
 public abstract class TestUnReturnedStudentBookDetails {
+	private final static Logger logger = LoggerFactory.getLogger(TestUnReturnedStudentBookDetails.class);
 
 	public static void main(String[] args) throws Exception {
-		LoggerUtil logger = LoggerUtil.getInstance();
+
 		Scanner sc = new Scanner(System.in);
 		SummaryDetailsService ob = new SummaryDetailsService();
 		logger.debug("Enter the Student id : ");
 //		System.out.print("Enter the Student id : ");
 		int studentId = sc.nextInt();
 
-		ArrayList<SummaryDetailsStudentDetails> out = null;
+		List<SummaryDetailsStudentDetails> out = null;
 		out = ob.unReturnedStudentBookDetails(studentId);
 		if (out != null) {
 			for (SummaryDetailsStudentDetails details : out) {
-				logger.info(details);
+				logger.info("",details);
 //				System.out.println(details);
 			}
 		} else {

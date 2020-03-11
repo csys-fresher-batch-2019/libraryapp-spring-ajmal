@@ -1,16 +1,20 @@
 package com.chainsys.summary;
 
-import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import com.chainsys.libraryapp.model.StudentFineSummaryDetails;
 import com.chainsys.libraryapp.service.SummaryDetailsService;
-import com.chainsys.libraryapp.util.LoggerUtil;
 
 public class TestStudentFinedetails {
-
+	private final static Logger logger = LoggerFactory.getLogger(TestStudentFinedetails.class);
+	
 	public static void main(String[] args) throws Exception {
-		LoggerUtil logger = LoggerUtil.getInstance();
+		//LoggerUtil logger = LoggerUtil.getInstance();
+		
 		SummaryDetailsService ob = new SummaryDetailsService();
 		Scanner sc = new Scanner(System.in);
 		// To calculate the Total Fine amount of a student along with their not Returned
@@ -20,7 +24,7 @@ public class TestStudentFinedetails {
 		int studentId = sc.nextInt();
 		int totalFineAmount = 0;
 		String name = null;
-		ArrayList<StudentFineSummaryDetails> out = ob.totalFineAmountOfStudent(studentId);
+		List<StudentFineSummaryDetails> out = ob.totalFineAmountOfStudent(studentId);
 		for (StudentFineSummaryDetails details : out) {
 			name = details.getStudentName();
 			totalFineAmount = totalFineAmount + details.getFineAmount();
@@ -31,7 +35,7 @@ public class TestStudentFinedetails {
 //		System.out.println("Total Fine Amount : " + totalFineAmount);
 		for (StudentFineSummaryDetails details : out) {
 //			System.out.println(details);
-			logger.info(details);
+			logger.info("",details);
 		}
 		sc.close();
 	}

@@ -3,14 +3,16 @@ package com.chainsys.tablebook;
 import java.sql.Date;
 import java.util.Scanner;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import com.chainsys.libraryapp.model.BookDetails;
 import com.chainsys.libraryapp.service.BookDetailsService;
-import com.chainsys.libraryapp.util.LoggerUtil;
 
 public class TestAddBookDetails {
+	private final static Logger logger = LoggerFactory.getLogger(TestAddBookDetails.class);
 
 	public static void main(String[] args) throws Exception {
-		LoggerUtil logger = LoggerUtil.getInstance();
 		BookDetailsService obj = new BookDetailsService();
 
 		logger.debug("Entre values \nBook Name :");

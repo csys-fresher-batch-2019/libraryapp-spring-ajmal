@@ -1,20 +1,23 @@
 package com.chainsys.tablestudent;
 
 import java.util.ArrayList;
+import java.util.List;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import com.chainsys.libraryapp.model.StudentDetails;
 import com.chainsys.libraryapp.service.StudentDetailsService;
-import com.chainsys.libraryapp.util.LoggerUtil;
 
 public class TestDisplayAllStudentDetails {
+	private final static Logger logger = LoggerFactory.getLogger(TestDisplayAllStudentDetails.class);
 
 	public static void main(String[] args) throws Exception {
-		LoggerUtil logger = LoggerUtil.getInstance();
 		StudentDetailsService ob = new StudentDetailsService();
-		ArrayList<StudentDetails> list = new ArrayList<StudentDetails>();
+		List<StudentDetails> list = new ArrayList<StudentDetails>();
 		list = ob.displayAllStudents();
 		for (StudentDetails details : list) {
-			logger.info(details);
+			logger.info("",details);
 		}
 
 	}
