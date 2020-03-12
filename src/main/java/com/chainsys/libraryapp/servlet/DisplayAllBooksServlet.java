@@ -31,7 +31,5 @@ public class DisplayAllBooksServlet extends HttpServlet {
 		}
 		request.setAttribute("BOOK_LIST", books);
 		request.getRequestDispatcher("displayallbooks.jsp?infoMessage=ListBooks").forward(request, response);
-
 	}
-
 }

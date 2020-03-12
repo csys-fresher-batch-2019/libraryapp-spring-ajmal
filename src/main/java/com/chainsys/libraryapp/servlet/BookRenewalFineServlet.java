@@ -22,13 +22,10 @@ public class BookRenewalFineServlet extends HttpServlet {
 		SummaryDetailsService ob=new SummaryDetailsService();
 		String bookid = request.getParameter("bookid");
 		int bookId = Integer.valueOf(bookid);
-
 		String studentid = request.getParameter("studentid");
 		int studentId = Integer.valueOf(studentid);
-		
 		String fineamount = request.getParameter("fineamount");
 		int fineAmount = Integer.valueOf(fineamount);
-
 		String output = request.getParameter("return");
 		
 		if(output.equalsIgnoreCase("Y"))

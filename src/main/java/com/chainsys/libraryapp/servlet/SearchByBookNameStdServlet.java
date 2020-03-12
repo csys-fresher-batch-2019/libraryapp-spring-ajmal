@@ -21,7 +21,6 @@ public class SearchByBookNameStdServlet extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-
 		BookDetailsService ob = new BookDetailsService();
 		String bookName = request.getParameter("bookname");
 		List<BookDetails> books = null;
@@ -39,8 +38,5 @@ public class SearchByBookNameStdServlet extends HttpServlet {
 			e.printStackTrace();
 			response.sendRedirect("searchbybooknamestd.jsp?errorMessage=" + e.getMessage());
 		}
-
-		// response.sendRedirect("detailsforbooknamestd.jsp?infoMessage=Fine Amount");
 	}
-
 }

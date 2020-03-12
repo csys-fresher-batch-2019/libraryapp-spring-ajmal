@@ -16,16 +16,15 @@ import com.chainsys.libraryapp.service.SummaryDetailsService;
 @WebServlet("/BookEntryServlet")
 public class BookEntryServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-	   
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		SummaryDetailsService ob=new SummaryDetailsService();
-		
-		String bookid=request.getParameter("bookid");
-		int bookId=Integer.valueOf(bookid);
 
-		String studentid=request.getParameter("studentid");
-		int studentId=Integer.valueOf(studentid);
-		
+	protected void doGet(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+		SummaryDetailsService ob = new SummaryDetailsService();
+		String bookid = request.getParameter("bookid");
+		int bookId = Integer.valueOf(bookid);
+		String studentid = request.getParameter("studentid");
+		int studentId = Integer.valueOf(studentid);
+
 		try {
 			ob.addNewEntry(studentId, bookId);
 			response.sendRedirect("bookentry.jsp?infoMessage=EntrySucessful");
@@ -33,11 +32,5 @@ public class BookEntryServlet extends HttpServlet {
 			e.printStackTrace();
 			response.sendRedirect("bookentry.jsp?errorMessage=" + e.getMessage());
 		}
-		
-		
-		//HttpSession session = request.getSession();
-		//session.setAttribute("LOGGED_IN_USER", "admin");
-		
-			}
-
+	}
 }

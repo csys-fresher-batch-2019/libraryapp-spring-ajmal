@@ -18,19 +18,18 @@ import com.chainsys.libraryapp.service.BookDetailsService;
 @WebServlet("/DisplayAllBooksStudentServlet")
 public class DisplayAllBooksStudentServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-	   
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		BookDetailsService ob=new BookDetailsService();
-		List<BookDetails> books= null;
+
+	protected void doGet(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+		BookDetailsService ob = new BookDetailsService();
+		List<BookDetails> books = null;
 		try {
-			books=ob.displayAllBooks();
+			books = ob.displayAllBooks();
 			System.out.println(books);
-		} catch (Exception e) { 
+		} catch (Exception e) {
 			e.printStackTrace();
 		}
 		request.setAttribute("BOOK_LIST", books);
 		request.getRequestDispatcher("displayallbooksstudent.jsp?infoMessage=ListBooks").forward(request, response);
-		
-		}
-
+	}
 }

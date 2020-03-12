@@ -17,23 +17,21 @@ import com.chainsys.libraryapp.service.StudentDetailsService;
 @WebServlet("/SearchByStudentIdServlet")
 public class SearchByStudentIdServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-	   
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		StudentDetailsService ob=new StudentDetailsService();
-		String studentid=request.getParameter("studentid");
-		int studentId=Integer.parseInt(studentid);
-		StudentDetails obj=null;
+
+	protected void doGet(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+		StudentDetailsService ob = new StudentDetailsService();
+		String studentid = request.getParameter("studentid");
+		int studentId = Integer.parseInt(studentid);
+		StudentDetails obj = null;
 		try {
-			obj=ob.displayStudentDetail(studentId);
+			obj = ob.displayStudentDetail(studentId);
 			request.setAttribute("student", obj);
-			request.getRequestDispatcher("displaystudentforid.jsp?infoMessage=StudentDetails").forward(request, response);
-			
+			request.getRequestDispatcher("displaystudentforid.jsp?infoMessage=StudentDetails").forward(request,
+					response);
 		} catch (Exception e) {
 			e.printStackTrace();
-			response.sendRedirect("searchbystudentid.jsp?errorMessage="+e.getMessage());
+			response.sendRedirect("searchbystudentid.jsp?errorMessage=" + e.getMessage());
 		}
-
-		
 	}
-
 }

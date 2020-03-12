@@ -22,7 +22,6 @@ public class BooksTakenByAStudentServlet extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-
 		SummaryDetailsService ob = new SummaryDetailsService();
 		HttpSession session = request.getSession();
 		int studentId = (int) session.getAttribute("studentId");
@@ -43,8 +42,5 @@ public class BooksTakenByAStudentServlet extends HttpServlet {
 			e.printStackTrace();
 			response.sendRedirect("studenthome.jsp?errorMessage=" + e.getMessage());
 		}
-
-		// response.sendRedirect("bookstakenbystudent.jsp?infoMessage=list Book");
 	}
-
 }

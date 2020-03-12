@@ -21,10 +21,8 @@ public class BookReturnServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		SummaryDetailsService ob = new SummaryDetailsService();
-
 		String bookid = request.getParameter("bookid");
 		int bookId = Integer.valueOf(bookid);
-
 		String studentid = request.getParameter("studentid");
 		int studentId = Integer.valueOf(studentid);
 		int fineAmount;
@@ -33,12 +31,12 @@ public class BookReturnServlet extends HttpServlet {
 			request.setAttribute("fineamount", fineAmount);
 			request.setAttribute("bookid", bookId);
 			request.setAttribute("studentid", studentId);
-			RequestDispatcher rd=request.getRequestDispatcher("bookreturnfine.jsp?infoMessage=Fine Amount");
+			RequestDispatcher rd = request.getRequestDispatcher("bookreturnfine.jsp?infoMessage=Fine Amount");
 			rd.forward(request, response);
-		
+
 		} catch (Exception e) {
 			e.printStackTrace();
-			response.sendRedirect("bookreturn.jsp?errorMessage="+e.getMessage());
+			response.sendRedirect("bookreturn.jsp?errorMessage=" + e.getMessage());
 		}
 
 	}

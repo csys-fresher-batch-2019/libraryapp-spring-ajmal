@@ -18,10 +18,11 @@ import com.chainsys.libraryapp.service.BookDetailsService;
 @WebServlet("/AddNewBookServlet")
 public class AddNewBookServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-	   
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		BookDetailsService ob=new BookDetailsService();
-		
+
+	protected void doGet(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+		BookDetailsService ob = new BookDetailsService();
+
 		String bookName = request.getParameter("bookname");
 		String bookAuthor = request.getParameter("bookauthor");
 		String bookCategory = request.getParameter("bookcategory");
@@ -35,8 +36,8 @@ public class AddNewBookServlet extends HttpServlet {
 		int bookPrice = Integer.valueOf(bookprice);
 		String date = request.getParameter("purchaseddate");
 		LocalDate purchasedDate = LocalDate.parse(date);
-		
-		BookDetails obj=new BookDetails();
+
+		BookDetails obj = new BookDetails();
 		obj.setBookName(bookName);
 		obj.setBookCategory(bookCategory);
 		obj.setBookAutherName(bookAuthor);
@@ -45,14 +46,14 @@ public class AddNewBookServlet extends HttpServlet {
 		obj.setBookCopies(bookCopies);
 		obj.setBookPrice(bookPrice);
 		obj.setBookPublishedDate(purchasedDate);
-		
+
 		try {
 			ob.addNewBook(obj);
 			response.sendRedirect("addnewbook.jsp?infoMessage=Successfully Added New Book");
 		} catch (Exception e) {
 			System.out.println(e.getMessage());
 			e.printStackTrace();
-			response.sendRedirect("addnewbook.jsp?errorMessage="+e.getMessage());
+			response.sendRedirect("addnewbook.jsp?errorMessage=" + e.getMessage());
 		}
 
 	}

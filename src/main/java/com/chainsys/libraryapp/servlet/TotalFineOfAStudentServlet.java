@@ -25,8 +25,6 @@ public class TotalFineOfAStudentServlet extends HttpServlet {
 		SummaryDetailsService ob = new SummaryDetailsService();
 		HttpSession ses = request.getSession();
 		int studentId = (int) ses.getAttribute("studentId");
-		// String studentid = request.getParameter("studentid");
-		// int studentId = Integer.parseInt(studentid);
 		int totalFineAmount = 0;
 		String name = null;
 		List<StudentFineSummaryDetails> out = null;
@@ -48,21 +46,6 @@ public class TotalFineOfAStudentServlet extends HttpServlet {
 			e.printStackTrace();
 			response.sendRedirect("studenthome.jsp?errorMessage=" + e.getMessage());
 		}
-
-		System.out.println("StudentName : " + name);
-		System.out.println("Total Fine Amount : " + totalFineAmount);
-		// for(StudentFineSummaryDetails details:out)
-		// {
-		// System.out.println(details);
-		// }
-
-		// PrintWriter out = response.getWriter();
-		// out.println(request.getContextPath());
-
-		// HttpSession session = request.getSession();
-		// session.setAttribute("LOGGED_IN_USER", "admin");
-
-		// response.sendRedirect("totalfineofstudent.jsp?infoMessage=Fine Calculated");
 	}
 
 }

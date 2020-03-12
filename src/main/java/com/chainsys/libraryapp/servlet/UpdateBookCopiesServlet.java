@@ -16,12 +16,12 @@ import com.chainsys.libraryapp.service.BookDetailsService;
 @WebServlet("/UpdateBookCopiesServlet")
 public class UpdateBookCopiesServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-	   
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		BookDetailsService ob=new BookDetailsService();
+
+	protected void doGet(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+		BookDetailsService ob = new BookDetailsService();
 		String bookid = request.getParameter("bookid");
 		int bookId = Integer.valueOf(bookid);
-
 		String bookcopies = request.getParameter("bookcopies");
 		int bookCopies = Integer.valueOf(bookcopies);
 		try {
@@ -29,12 +29,7 @@ public class UpdateBookCopiesServlet extends HttpServlet {
 			response.sendRedirect("updatebookcopies.jsp?infoMessage=Sucessfully Updated Copies");
 		} catch (Exception e) {
 			e.printStackTrace();
-			response.sendRedirect("updatebookcopies.jsp?errorMessage="+e.getMessage());
-			
+			response.sendRedirect("updatebookcopies.jsp?errorMessage=" + e.getMessage());
 		}
-		
-		
-		
 	}
-
 }

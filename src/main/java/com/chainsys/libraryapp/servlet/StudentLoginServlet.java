@@ -21,19 +21,11 @@ public class StudentLoginServlet extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-
-		// PrintWriter out = response.getWriter();
-		// out.println(request.getContextPath());
-		//
-		// HttpSession session = request.getSession();
-		// session.setAttribute("LOGGED_IN_USER", "Student");
 		StudentDetailsService ob = new StudentDetailsService();
 		String studentid = request.getParameter("studentid");
 		int studentId = Integer.valueOf(studentid);
-	
 		HttpSession s = request.getSession();
 		s.setAttribute("studentId", studentId);
-	
 		String date = request.getParameter("dob");
 		LocalDate dateOfBirth = LocalDate.parse(date);
 		try {
@@ -46,10 +38,7 @@ public class StudentLoginServlet extends HttpServlet {
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
-			response.sendRedirect("studentlogin.jsp?errorMessage="+e.getMessage());
+			response.sendRedirect("studentlogin.jsp?errorMessage=" + e.getMessage());
 		}
-
-		
 	}
-
 }

@@ -16,17 +16,17 @@ import javax.servlet.http.HttpSession;
 @WebServlet("/AdminLogoutServlet")
 public class AdminLogoutServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-   
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
+
+	protected void doGet(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+
 		PrintWriter out = response.getWriter();
 		out.println(request.getContextPath());
-		
+
 		HttpSession session = request.getSession();
-		//session.setAttribute("LOGGED_IN_USER", "admin");
+		// session.setAttribute("LOGGED_IN_USER", "admin");
 		session.invalidate();
 		response.sendRedirect("index.jsp?infoMessage=Successfully LoggedOut");
 	}
-	
 
 }

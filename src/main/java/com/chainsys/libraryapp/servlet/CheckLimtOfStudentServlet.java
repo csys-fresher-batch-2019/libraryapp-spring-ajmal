@@ -17,22 +17,19 @@ import com.chainsys.libraryapp.service.SummaryDetailsService;
 @WebServlet("/CheckLimtOfStudentServlet")
 public class CheckLimtOfStudentServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-	   
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		SummaryDetailsService ob=new SummaryDetailsService();
-		HttpSession ses=request.getSession();
-		int studentId=(int) ses.getAttribute("studentId");
-		//String studentid=request.getParameter("studentid");
-		//int studentId=Integer.parseInt(studentid);
+
+	protected void doGet(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+		SummaryDetailsService ob = new SummaryDetailsService();
+		HttpSession ses = request.getSession();
+		int studentId = (int) ses.getAttribute("studentId");
 		try {
 			ob.limitForStudent(studentId);
-			response.sendRedirect("checkstudentlimit.jsp?infoMessage=Your limt has not exceeded");	
+			response.sendRedirect("checkstudentlimit.jsp?infoMessage=Your limt has not exceeded");
 		} catch (Exception e) {
 			e.printStackTrace();
-			response.sendRedirect("checkstudentlimit.jsp?infoMessage="+e.getMessage());
+			response.sendRedirect("checkstudentlimit.jsp?infoMessage=" + e.getMessage());
 		}
 		System.out.println("Your limt has not exceeds");
-		
-		//response.sendRedirect("checkstudentlimit.jsp?infoMessage=LimitOf Student");	}
 	}
 }
