@@ -37,6 +37,7 @@ public class TotalFineOfAStudentServlet extends HttpServlet {
 			if (out.isEmpty()) {
 				response.sendRedirect("studenthome.jsp?infoMessage=No Book Taken");
 			} else {
+				request.setAttribute("name", name);
 				request.setAttribute("Details", out);
 				request.setAttribute("TotalFine", totalFineAmount);
 				request.getRequestDispatcher("totalfineofstudent.jsp?infoMessage=TotalFineDetails").forward(request,

@@ -23,7 +23,7 @@ public class StudentDetailsService {
 			throw new ServiceException(Constant.UNABLE_TO_ADD, e);
 		}
 	}
-
+	
 	public StudentDetails displayStudentDetail(int studentId) throws ServiceException {
 		try {
 			Validation.checkStudentId(studentId);

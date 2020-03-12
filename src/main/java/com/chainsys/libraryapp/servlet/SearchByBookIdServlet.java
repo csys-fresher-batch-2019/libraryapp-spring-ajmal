@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.chainsys.libraryapp.model.BookDetails;
 import com.chainsys.libraryapp.service.BookDetailsService;
+import com.chainsys.libraryapp.service.SummaryDetailsService;
 
 /**
  * Servlet implementation class SearchByBookIdServlet
@@ -21,13 +22,16 @@ public class SearchByBookIdServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		BookDetailsService ob = new BookDetailsService();
+		SummaryDetailsService obj=new SummaryDetailsService();
 		String bookid = request.getParameter("bookid");
-
+		int available;
 		BookDetails book = null;
 		int bookId = Integer.parseInt(bookid);
 		try {
 			book = ob.displayBook(bookId);
+			available=obj.noOfBooksAvailable(bookId);
 			System.out.println(book);
+			request.setAttribute("AvailableCopies", available);
 			request.setAttribute("BOOK_LIST", book);
 			request.getRequestDispatcher("detailsforbookid.jsp?infoMessage=ListBooks").forward(request, response);
 		} catch (Exception e) {

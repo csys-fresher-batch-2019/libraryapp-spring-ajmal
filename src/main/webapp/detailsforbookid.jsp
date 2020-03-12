@@ -22,7 +22,6 @@
 </head>
 <body>
 	<jsp:include page="adminheader.jsp"></jsp:include>
-	<jsp:include page="message.jsp"></jsp:include>
 	<div class="jumbotron jumbotron-fluid">
 		<div class="container">
 			<h2>
@@ -39,6 +38,7 @@
 						<th>Price(Rs)</th>
 						<th>PublishedDate</th>
 						<th>Copies</th>
+						<th>Available Copies</th>
 						<th>Pages</th>
 					</tr>
 				</thead>
@@ -53,6 +53,7 @@
 						<td>Rs.${BOOK_LIST.bookPrice}</td>
 						<td>${BOOK_LIST.bookPublishedDate}</td>
 						<td>${BOOK_LIST.bookCopies}</td>
+						<td>${AvailableCopies}</td>
 						<td>${BOOK_LIST.bookPages}</td>
 					</tr>
 				</tbody>
