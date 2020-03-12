@@ -6,7 +6,7 @@ import java.util.Scanner;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import com.chainsys.libraryapp.model.SummaryDetailsStudentDetails;
+import com.chainsys.libraryapp.dto.SummaryDetailsStudentDetails;
 import com.chainsys.libraryapp.service.SummaryDetailsService;
 
 public abstract class TestUnReturnedStudentBookDetails {

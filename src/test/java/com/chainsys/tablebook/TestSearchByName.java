@@ -7,7 +7,7 @@ import java.util.Scanner;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import com.chainsys.libraryapp.model.BookDetails;
+import com.chainsys.libraryapp.model.Book;
 import com.chainsys.libraryapp.service.BookDetailsService;
 
 public class TestSearchByName {
@@ -15,13 +15,13 @@ public class TestSearchByName {
 
 	public static void main(String[] args) throws Exception {
 		BookDetailsService ob = new BookDetailsService();
-		List<BookDetails> list = new ArrayList<>();
+		List<Book> list = new ArrayList<>();
 		logger.debug("Enter the name to be searched : ");
 		Scanner sc = new Scanner(System.in);
 		String bookName = sc.next();
 		list = ob.searchByName(bookName);
 		boolean result = false;
-		for (BookDetails details : list) {
+		for (Book details : list) {
 			result = true;
 			logger.info("",details);
 		}

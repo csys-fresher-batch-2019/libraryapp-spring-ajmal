@@ -8,12 +8,12 @@ import com.chainsys.libraryapp.dao.BookDetailsDAO;
 import com.chainsys.libraryapp.dao.DAOFactory;
 import com.chainsys.libraryapp.dao.StudentDetailsDAO;
 import com.chainsys.libraryapp.dao.SummaryDetailsDAO;
+import com.chainsys.libraryapp.dto.StudentFineSummaryDetails;
+import com.chainsys.libraryapp.dto.SummaryDetailsDueDate;
+import com.chainsys.libraryapp.dto.SummaryDetailsStudentDetails;
 import com.chainsys.libraryapp.exception.DbException;
 import com.chainsys.libraryapp.exception.ServiceException;
 import com.chainsys.libraryapp.exception.ValidationException;
-import com.chainsys.libraryapp.model.StudentFineSummaryDetails;
-import com.chainsys.libraryapp.model.SummaryDetailsDueDate;
-import com.chainsys.libraryapp.model.SummaryDetailsStudentDetails;
 import com.chainsys.libraryapp.util.Constant;
 import com.chainsys.libraryapp.validation.Validation;
 

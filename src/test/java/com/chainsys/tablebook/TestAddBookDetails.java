@@ -6,7 +6,7 @@ import java.util.Scanner;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import com.chainsys.libraryapp.model.BookDetails;
+import com.chainsys.libraryapp.model.Book;
 import com.chainsys.libraryapp.service.BookDetailsService;
 
 public class TestAddBookDetails {
@@ -35,7 +35,7 @@ public class TestAddBookDetails {
 		String bookPublishedDate = sc.next();
 		Date date = Date.valueOf(bookPublishedDate);
 
-		BookDetails ob = new BookDetails();
+		Book ob = new Book();
 		ob.setBookName(bookName);
 		ob.setBookCategory(bookCategory);
 		ob.setBookAutherName(bookAuthor);

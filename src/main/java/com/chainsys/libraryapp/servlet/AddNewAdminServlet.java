@@ -10,7 +10,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.chainsys.libraryapp.exception.ServiceException;
-import com.chainsys.libraryapp.model.AdminDetails;
+import com.chainsys.libraryapp.model.Admin;
 import com.chainsys.libraryapp.service.AdminDetailsService;
 
 /**
@@ -29,13 +29,13 @@ public class AddNewAdminServlet extends HttpServlet {
 		String mobileNumber = request.getParameter("mobilenumber");
 		String password = request.getParameter("password");
 		String gender = request.getParameter("gender");
-		AdminDetails obj = new AdminDetails();
-		obj.setAdminName(adminName);
-		obj.setAdminDOB(LocalDate.parse(dob));
-		obj.setAdminMailId(email);
-		obj.setAdminMobileNo(Long.valueOf(mobileNumber));
-		obj.setAdminPassword(password);
-		obj.setAdminGender(gender);
+		Admin obj = new Admin();
+		obj.setName(adminName);
+		obj.setDob(LocalDate.parse(dob));
+		obj.setMailId(email);
+		obj.setMobileNo(Long.valueOf(mobileNumber));
+		obj.setPassword(password);
+		obj.setGender(gender);
 		try {
 			ob.addNewAdmin(obj);
 			response.sendRedirect("adminhome.jsp?infoMessage=NewAdminAdded");

@@ -6,7 +6,7 @@ import java.sql.SQLException;
 import org.jdbi.v3.core.mapper.RowMapper;
 import org.jdbi.v3.core.statement.StatementContext;
 
-import com.chainsys.libraryapp.model.SummaryDetailsStudentDetails;
+import com.chainsys.libraryapp.dto.SummaryDetailsStudentDetails;
 
 public class SummaryDetailsStudentDetailsRowMapper implements RowMapper<SummaryDetailsStudentDetails>{
 

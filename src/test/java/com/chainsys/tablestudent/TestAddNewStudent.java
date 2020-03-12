@@ -6,7 +6,7 @@ import java.util.Scanner;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import com.chainsys.libraryapp.model.StudentDetails;
+import com.chainsys.libraryapp.model.Student;
 import com.chainsys.libraryapp.service.StudentDetailsService;
 
 public class TestAddNewStudent {
@@ -29,7 +29,7 @@ public class TestAddNewStudent {
 		Date date = Date.valueOf(dateOfBirth);
 
 		StudentDetailsService obj = new StudentDetailsService();
-		StudentDetails ob = new StudentDetails();
+		Student ob = new Student();
 		ob.setStudentName(studentName);
 		ob.setStudentDepatment(studentDepartment);
 		ob.setDateOfBirth(date.toLocalDate());

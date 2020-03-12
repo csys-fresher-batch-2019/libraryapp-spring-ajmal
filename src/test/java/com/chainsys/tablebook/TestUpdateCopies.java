@@ -7,7 +7,7 @@ import java.util.Scanner;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import com.chainsys.libraryapp.model.BookDetails;
+import com.chainsys.libraryapp.model.Book;
 import com.chainsys.libraryapp.service.BookDetailsService;
 
 public class TestUpdateCopies {
@@ -18,9 +18,9 @@ public class TestUpdateCopies {
 		Scanner sc = new Scanner(System.in);
 		logger.debug("Enter the Book Name : ");
 		String bookName = sc.nextLine();
-		List<BookDetails> list = new ArrayList<>();
+		List<Book> list = new ArrayList<>();
 		list = obj.searchByName(bookName);
-		for (BookDetails details : list) {
+		for (Book details : list) {
 			logger.info("",details);
 		}
 		logger.debug("Enter the BookId to Update copies : ");

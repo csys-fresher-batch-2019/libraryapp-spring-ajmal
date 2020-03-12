@@ -11,10 +11,10 @@ import org.jdbi.v3.sqlobject.statement.SqlUpdate;
 import com.chainsys.libraryapp.dao.mapper.StudentDetailsStudentFineRowMapper;
 import com.chainsys.libraryapp.dao.mapper.SummaryDetailsDueDateRowMapper;
 import com.chainsys.libraryapp.dao.mapper.SummaryDetailsStudentDetailsRowMapper;
+import com.chainsys.libraryapp.dto.StudentFineSummaryDetails;
+import com.chainsys.libraryapp.dto.SummaryDetailsDueDate;
+import com.chainsys.libraryapp.dto.SummaryDetailsStudentDetails;
 import com.chainsys.libraryapp.exception.DbException;
-import com.chainsys.libraryapp.model.StudentFineSummaryDetails;
-import com.chainsys.libraryapp.model.SummaryDetailsDueDate;
-import com.chainsys.libraryapp.model.SummaryDetailsStudentDetails;
 
 public interface SummaryDetailsDAO {
 

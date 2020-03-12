@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.chainsys.libraryapp.model.BookDetails;
+import com.chainsys.libraryapp.model.Book;
 import com.chainsys.libraryapp.service.BookDetailsService;
 
 @CrossOrigin(origins = "*")
@@ -25,16 +25,16 @@ public class ProductController {
 			@RequestParam("bookcategory") String bookcategory, @RequestParam("bookpages") int bookpages,
 			@RequestParam("bookprice") int bookprice, @RequestParam("bookcopies") int bookcopies,
 			@RequestParam("bookedition") int bookedition, @RequestParam("publisheddate") String publisheddate) {
-		BookDetails obj = new BookDetails();
-		obj.setBookName(bookname);
-		obj.setBookAutherName(bookauthor);
-		obj.setBookCategory(bookcategory);
-		obj.setBookCopies(bookcopies);
-		obj.setBookEdition(bookedition);
-		obj.setBookPages(bookpages);
-		obj.setBookPrice(bookprice);
+		Book obj = new Book();
+		obj.setName(bookname);
+		obj.setAuthorName(bookauthor);
+		obj.setCategory(bookcategory);
+		obj.setCopies(bookcopies);
+		obj.setEdition(bookedition);
+		obj.setPages(bookpages);
+		obj.setPrice(bookprice);
 		LocalDate db = LocalDate.parse(publisheddate);
-		obj.setBookPublishedDate(db);
+		obj.setPublishedDate(db);
 		try {
 			ob.addNewBook(obj);
 		} catch (Exception e) {
@@ -44,8 +44,8 @@ public class ProductController {
 	}
 
 	@GetMapping("/DisplayAllBooks")
-	public List<BookDetails> displayAllBooks() throws Exception {
-		List<BookDetails> obj = new ArrayList<BookDetails>();
+	public List<Book> displayAllBooks() throws Exception {
+		List<Book> obj = new ArrayList<Book>();
 		obj = ob.displayAllBooks();
 		return obj;
 

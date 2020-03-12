@@ -9,7 +9,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.chainsys.libraryapp.model.BookDetails;
+import com.chainsys.libraryapp.model.Book;
 import com.chainsys.libraryapp.service.BookDetailsService;
 
 /**
@@ -23,7 +23,7 @@ public class SearchByBookNameStdServlet extends HttpServlet {
 			throws ServletException, IOException {
 		BookDetailsService ob = new BookDetailsService();
 		String bookName = request.getParameter("bookname");
-		List<BookDetails> books = null;
+		List<Book> books = null;
 		try {
 			books = ob.searchByName(bookName);
 			System.out.println(books);

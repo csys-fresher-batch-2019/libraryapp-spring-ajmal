@@ -10,7 +10,7 @@ import com.chainsys.libraryapp.dao.DAOFactory;
 import com.chainsys.libraryapp.exception.DbException;
 import com.chainsys.libraryapp.exception.ServiceException;
 import com.chainsys.libraryapp.exception.ValidationException;
-import com.chainsys.libraryapp.model.BookDetails;
+import com.chainsys.libraryapp.model.Book;
 import com.chainsys.libraryapp.util.Constant;
 import com.chainsys.libraryapp.validation.Validation;
 
@@ -20,7 +20,7 @@ public class BookDetailsService {
 	// private BookDetailsDAO bookDetailsDAO = new BookDetailsDAOImp();
 	private BookDetailsDAO bookDetailsDAO = DAOFactory.getBookDetailDAO();
 
-	public void addNewBook(BookDetails bookdetails) throws ServiceException {
+	public void addNewBook(Book bookdetails) throws ServiceException {
 		try {
 			bookDetailsDAO.save(bookdetails);
 		} catch (DbException e) {
@@ -41,7 +41,7 @@ public class BookDetailsService {
 		}
 	}
 
-	public BookDetails displayBook(int bookId) throws ServiceException {
+	public Book displayBook(int bookId) throws ServiceException {
 		try {
 			Validation.checkBookId(bookId);
 			return bookDetailsDAO.findByBookId(bookId);
@@ -53,7 +53,7 @@ public class BookDetailsService {
 
 	}
 
-	public List<BookDetails> displayAllBooks() throws ServiceException {
+	public List<Book> displayAllBooks() throws ServiceException {
 		try {
 			return bookDetailsDAO.findAll();
 		} catch (DbException e) {
@@ -61,7 +61,7 @@ public class BookDetailsService {
 		}
 	}
 
-	public List<BookDetails> searchByName(String bookName) throws ServiceException {
+	public List<Book> searchByName(String bookName) throws ServiceException {
 		try {
 			return bookDetailsDAO.findByName(bookName);
 		} catch (DbException e) {

@@ -5,7 +5,7 @@ import java.util.Scanner;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import com.chainsys.libraryapp.model.BookDetails;
+import com.chainsys.libraryapp.model.Book;
 import com.chainsys.libraryapp.service.BookDetailsService;
 
 public class TestDisplayBookDetails {
@@ -16,7 +16,7 @@ public class TestDisplayBookDetails {
 		Scanner sc = new Scanner(System.in);
 		logger.debug("Enter the bookId : ");
 		int bookId = sc.nextInt();
-		BookDetails out = new BookDetails();
+		Book out = new Book();
 		out = ob.displayBook(bookId);
 		if (out != null) {
 			logger.info("",out);

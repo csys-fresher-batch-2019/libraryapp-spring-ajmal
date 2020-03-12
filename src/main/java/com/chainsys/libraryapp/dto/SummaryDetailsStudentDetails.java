@@ -1,4 +1,4 @@
-package com.chainsys.libraryapp.model;
+package com.chainsys.libraryapp.dto;
 
 import java.time.LocalDate;
 

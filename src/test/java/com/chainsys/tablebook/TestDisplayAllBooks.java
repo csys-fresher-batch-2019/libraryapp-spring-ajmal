@@ -6,7 +6,7 @@ import java.util.List;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import com.chainsys.libraryapp.model.BookDetails;
+import com.chainsys.libraryapp.model.Book;
 import com.chainsys.libraryapp.service.BookDetailsService;
 
 public class TestDisplayAllBooks {
@@ -14,10 +14,10 @@ public class TestDisplayAllBooks {
 
 	public static void main(String[] args) throws Exception {
 		BookDetailsService ob = new BookDetailsService();
-		List<BookDetails> out = new ArrayList<BookDetails>();
+		List<Book> out = new ArrayList<Book>();
 		out = ob.displayAllBooks();
 		logger.info("All Books Details");
-		for (BookDetails details : out) {
+		for (Book details : out) {
 			logger.info("", details);
 		}
 

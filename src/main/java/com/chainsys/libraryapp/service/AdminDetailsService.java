@@ -4,14 +4,14 @@ import com.chainsys.libraryapp.dao.AdminDetailsDAO;
 import com.chainsys.libraryapp.dao.DAOFactory;
 import com.chainsys.libraryapp.exception.DbException;
 import com.chainsys.libraryapp.exception.ServiceException;
-import com.chainsys.libraryapp.model.AdminDetails;
+import com.chainsys.libraryapp.model.Admin;
 import com.chainsys.libraryapp.util.Constant;
 
 public class AdminDetailsService {
 
 	private AdminDetailsDAO adminDetailsDAO = DAOFactory.getAdminDetailDAO();
 
-	public void addNewAdmin(AdminDetails admindetails) throws ServiceException {
+	public void addNewAdmin(Admin admindetails) throws ServiceException {
 		try {
 			adminDetailsDAO.save(admindetails);
 		} catch (DbException e) {

@@ -5,7 +5,7 @@ import java.util.Scanner;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import com.chainsys.libraryapp.model.StudentDetails;
+import com.chainsys.libraryapp.model.Student;
 import com.chainsys.libraryapp.service.StudentDetailsService;
 
 public class TestDisplayStudentDetail {
@@ -16,7 +16,7 @@ public class TestDisplayStudentDetail {
 		Scanner sc = new Scanner(System.in);
 		logger.debug("Enter Student Id - ");
 		int studentId = sc.nextInt();
-		StudentDetails obj = new StudentDetails();
+		Student obj = new Student();
 		obj = ob.displayStudentDetail(studentId);
 		logger.info("", obj);
 		sc.close();

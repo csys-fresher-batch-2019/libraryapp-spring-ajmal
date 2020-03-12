@@ -8,7 +8,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.chainsys.libraryapp.model.StudentDetails;
+import com.chainsys.libraryapp.model.Student;
 import com.chainsys.libraryapp.service.StudentDetailsService;
 
 /**
@@ -23,7 +23,7 @@ public class SearchByStudentIdServlet extends HttpServlet {
 		StudentDetailsService ob = new StudentDetailsService();
 		String studentid = request.getParameter("studentid");
 		int studentId = Integer.parseInt(studentid);
-		StudentDetails obj = null;
+		Student obj = null;
 		try {
 			obj = ob.displayStudentDetail(studentId);
 			request.setAttribute("student", obj);

@@ -6,7 +6,7 @@ import java.util.Scanner;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import com.chainsys.libraryapp.model.AdminDetails;
+import com.chainsys.libraryapp.model.Admin;
 import com.chainsys.libraryapp.service.AdminDetailsService;
 
 public abstract class TestAddNewAdmin {
@@ -14,7 +14,7 @@ public abstract class TestAddNewAdmin {
 
 	public static void main(String[] args) throws Exception {
 		AdminDetailsService ob = new AdminDetailsService();
-		AdminDetails obj = new AdminDetails();
+		Admin obj = new Admin();
 		logger.debug("Creation Of New Admin \n Enter Name : ");
 		Scanner sc = new Scanner(System.in);
 		obj.setAdminName(sc.next());

@@ -5,7 +5,7 @@ import java.util.Scanner;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import com.chainsys.libraryapp.model.BookDetails;
+import com.chainsys.libraryapp.model.Book;
 import com.chainsys.libraryapp.service.BookDetailsService;
 import com.chainsys.libraryapp.service.SummaryDetailsService;
 
@@ -16,7 +16,7 @@ public class TestAvailableBooks {
 
 		SummaryDetailsService ob = new SummaryDetailsService();
 		BookDetailsService obj = new BookDetailsService();
-		BookDetails out = new BookDetails();
+		Book out = new Book();
 		Scanner sc = new Scanner(System.in);
 		logger.debug("Enter the bookId to be found available : ");
 		// System.out.print("Enter the bookId to be found available : ");

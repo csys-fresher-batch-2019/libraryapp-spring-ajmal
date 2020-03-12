@@ -9,7 +9,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.chainsys.libraryapp.model.BookDetails;
+import com.chainsys.libraryapp.model.Book;
 import com.chainsys.libraryapp.service.BookDetailsService;
 
 /**
@@ -37,15 +37,15 @@ public class AddNewBookServlet extends HttpServlet {
 		String date = request.getParameter("purchaseddate");
 		LocalDate purchasedDate = LocalDate.parse(date);
 
-		BookDetails obj = new BookDetails();
-		obj.setBookName(bookName);
-		obj.setBookCategory(bookCategory);
-		obj.setBookAutherName(bookAuthor);
-		obj.setBookEdition(bookEdition);
-		obj.setBookPages(bookPages);
-		obj.setBookCopies(bookCopies);
-		obj.setBookPrice(bookPrice);
-		obj.setBookPublishedDate(purchasedDate);
+		Book obj = new Book();
+		obj.setName(bookName);
+		obj.setCategory(bookCategory);
+		obj.setAuthorName(bookAuthor);
+		obj.setEdition(bookEdition);
+		obj.setPages(bookPages);
+		obj.setCopies(bookCopies);
+		obj.setPrice(bookPrice);
+		obj.setPublishedDate(purchasedDate);
 
 		try {
 			ob.addNewBook(obj);

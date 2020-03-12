@@ -8,7 +8,7 @@ import com.chainsys.libraryapp.dao.StudentDetailsDAO;
 import com.chainsys.libraryapp.exception.DbException;
 import com.chainsys.libraryapp.exception.ServiceException;
 import com.chainsys.libraryapp.exception.ValidationException;
-import com.chainsys.libraryapp.model.StudentDetails;
+import com.chainsys.libraryapp.model.Student;
 import com.chainsys.libraryapp.util.Constant;
 import com.chainsys.libraryapp.validation.Validation;
 
@@ -16,7 +16,7 @@ public class StudentDetailsService {
 
 	private StudentDetailsDAO studentDetailsDAO = DAOFactory.getStudentDetailDAO();
 
-	public void addStudentDetails(StudentDetails studentdetails) throws ServiceException {
+	public void addStudentDetails(Student studentdetails) throws ServiceException {
 		try {
 			studentDetailsDAO.save(studentdetails);
 		} catch (DbException e) {
@@ -24,7 +24,7 @@ public class StudentDetailsService {
 		}
 	}
 	
-	public StudentDetails displayStudentDetail(int studentId) throws ServiceException {
+	public Student displayStudentDetail(int studentId) throws ServiceException {
 		try {
 			Validation.checkStudentId(studentId);
 			return studentDetailsDAO.findById(studentId);
@@ -36,7 +36,7 @@ public class StudentDetailsService {
 
 	}
 
-	public List<StudentDetails> displayAllStudents() throws ServiceException {
+	public List<Student> displayAllStudents() throws ServiceException {
 		try {
 			return studentDetailsDAO.findAll();
 		} catch (DbException e) {

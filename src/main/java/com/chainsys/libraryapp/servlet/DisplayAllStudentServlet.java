@@ -9,7 +9,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.chainsys.libraryapp.model.StudentDetails;
+import com.chainsys.libraryapp.model.Student;
 import com.chainsys.libraryapp.service.StudentDetailsService;
 
 /**
@@ -22,7 +22,7 @@ public class DisplayAllStudentServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		StudentDetailsService ob = new StudentDetailsService();
-		List<StudentDetails> student = null;
+		List<Student> student = null;
 		try {
 			student = ob.displayAllStudents();
 			System.out.println(student);

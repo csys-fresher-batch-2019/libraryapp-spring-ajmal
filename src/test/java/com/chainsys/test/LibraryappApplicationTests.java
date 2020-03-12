@@ -11,7 +11,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 import com.chainsys.libraryapp.dao.BookDetailsDAO;
 import com.chainsys.libraryapp.dao.StudentDetailsDAO;
 import com.chainsys.libraryapp.dao.SummaryDetailsDAO;
-import com.chainsys.libraryapp.model.BookDetails;
+import com.chainsys.libraryapp.model.Book;
 import com.chainsys.libraryapp.service.SummaryDetailsService;
 import com.chainsys.libraryapp.util.Connectionutil;
 
@@ -115,7 +115,7 @@ public class LibraryappApplicationTests {
 	@Test
 	public void searchBookTest() throws Exception {
 		int bookId = 101;
-		BookDetails expected = new BookDetails();
+		Book expected = new Book();
 		expected.setBookId(bookId);
 		expected.setBookName("Electronic Devices and Circuits");
 		expected.setBookCategory("Electronics");
@@ -126,7 +126,7 @@ public class LibraryappApplicationTests {
 		expected.setBookPublishedDate(LocalDate.parse(date));
 		expected.setBookPrice(200);
 		expected.setBookPages(342);
-		BookDetails bookdetail = obj1.findByBookId(bookId);
+		Book bookdetail = obj1.findByBookId(bookId);
 		Assert.assertEquals(expected, bookdetail);
 	}
 

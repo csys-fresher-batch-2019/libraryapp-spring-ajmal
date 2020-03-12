@@ -9,7 +9,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.chainsys.libraryapp.model.StudentDetails;
+import com.chainsys.libraryapp.model.Student;
 import com.chainsys.libraryapp.service.StudentDetailsService;
 
 /**
@@ -32,11 +32,11 @@ public class AddNewStudentServlet extends HttpServlet {
 		String yearOfJoin = request.getParameter("yearofjoin");
 		int yOfJoin = Integer.valueOf(yearOfJoin);
 
-		StudentDetails obj = new StudentDetails();
-		obj.setStudentName(studentName);
-		obj.setStudentDepatment(studentDepartment);
-		obj.setDateOfBirth(dob.toLocalDate());
-		obj.setStudentMailId(studentMailId);
+		Student obj = new Student();
+		obj.setName(studentName);
+		obj.setDept(studentDepartment);
+		obj.setDob(dob.toLocalDate());
+		obj.setMailId(studentMailId);
 		obj.setMobileNumber(mobileNumber);
 		obj.setYearOfJoin(yOfJoin);
 
