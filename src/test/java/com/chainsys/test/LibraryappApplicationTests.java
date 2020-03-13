@@ -116,16 +116,16 @@ public class LibraryappApplicationTests {
 	public void searchBookTest() throws Exception {
 		int bookId = 101;
 		Book expected = new Book();
-		expected.setBookId(bookId);
-		expected.setBookName("Electronic Devices and Circuits");
-		expected.setBookCategory("Electronics");
-		expected.setBookAutherName("Boylested,Robert.L");
-		expected.setBookEdition(1);
-		expected.setBookCopies(42);
+		expected.setId(bookId);
+		expected.setName("Electronic Devices and Circuits");
+		expected.setCategory("Electronics");
+		expected.setAuthorName("Boylested,Robert.L");
+		expected.setEdition(1);
+		expected.setCopies(42);
 		String date = "1998-02-15";
-		expected.setBookPublishedDate(LocalDate.parse(date));
-		expected.setBookPrice(200);
-		expected.setBookPages(342);
+		expected.setPublishedDate(LocalDate.parse(date));
+		expected.setPrice(200);
+		expected.setPages(342);
 		Book bookdetail = obj1.findByBookId(bookId);
 		Assert.assertEquals(expected, bookdetail);
 	}

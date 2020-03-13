@@ -16,10 +16,11 @@ import com.chainsys.libraryapp.service.SummaryService;
 @WebServlet("/BookRenewalFineServlet")
 public class BookRenewalFineServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-	   
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
-		SummaryService ob=new SummaryService();
+
+	protected void doGet(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+
+		SummaryService ob = new SummaryService();
 		String bookid = request.getParameter("bookid");
 		int bookId = Integer.valueOf(bookid);
 		String studentid = request.getParameter("studentid");
@@ -27,22 +28,19 @@ public class BookRenewalFineServlet extends HttpServlet {
 		String fineamount = request.getParameter("fineamount");
 		int fineAmount = Integer.valueOf(fineamount);
 		String output = request.getParameter("return");
-		
-		if(output.equalsIgnoreCase("Y"))
-		{
+
+		if (output.equalsIgnoreCase("Y")) {
 			try {
-				ob.updateReturnRecord(studentId, bookId,fineAmount);
+				ob.updateReturnRecord(studentId, bookId, fineAmount);
 				ob.addNewEntry(studentId, bookId);
 			} catch (Exception e) {
 				e.printStackTrace();
-				response.sendRedirect("bookrenewal.jsp?errorMessage="+e.getMessage());
+				response.sendRedirect("bookrenewal.jsp?errorMessage=" + e.getMessage());
 			}
 			response.sendRedirect("bookrenewal.jsp?infoMessage=Successfully Renewed");
-			
+
 			System.out.println("Book Renewed");
-		}
-		else
-		{
+		} else {
 			response.sendRedirect("bookrenewal.jsp?errorMessage=ThankYou...");
 		}
 	}

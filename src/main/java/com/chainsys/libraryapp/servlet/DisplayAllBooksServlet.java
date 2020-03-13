@@ -25,9 +25,9 @@ public class DisplayAllBooksServlet extends HttpServlet {
 		List<Book> books = null;
 		try {
 			books = ob.displayAllBooks();
-			//System.out.println(books);
+			// System.out.println(books);
 		} catch (Exception e) {
-			//e.printStackTrace();
+			// e.printStackTrace();
 		}
 		request.setAttribute("BOOK_LIST", books);
 		request.getRequestDispatcher("displayallbooks.jsp?infoMessage=ListBooks").forward(request, response);

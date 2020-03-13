@@ -28,11 +28,17 @@ public class BookRenewalServlet extends HttpServlet {
 		int fineAmount;
 		try {
 			fineAmount = ob.calculateFineAmount(studentId, bookId);
-			request.setAttribute("fineamount", fineAmount);
-			request.setAttribute("bookid", bookId);
-			request.setAttribute("studentid", studentId);
-			RequestDispatcher rd = request.getRequestDispatcher("bookrenewalfine.jsp?infoMessage=Fine Amount");
-			rd.forward(request, response);
+			if (fineAmount == 0) {
+				ob.updateReturnRecord(studentId, bookId, fineAmount);
+				ob.addNewEntry(studentId, bookId);
+				response.sendRedirect("bookrenewal.jsp?infoMessage=Renewal Successfull");
+			} else {
+				request.setAttribute("fineamount", fineAmount);
+				request.setAttribute("bookid", bookId);
+				request.setAttribute("studentid", studentId);
+				RequestDispatcher rd = request.getRequestDispatcher("bookrenewalfine.jsp?infoMessage=Fine Amount");
+				rd.forward(request, response);
+			}
 
 		} catch (Exception e) {
 			e.printStackTrace();
