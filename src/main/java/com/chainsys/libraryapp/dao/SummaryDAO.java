@@ -8,12 +8,12 @@ import org.jdbi.v3.sqlobject.customizer.Bind;
 import org.jdbi.v3.sqlobject.statement.SqlQuery;
 import org.jdbi.v3.sqlobject.statement.SqlUpdate;
 
-import com.chainsys.libraryapp.dao.mapper.StudentDetailsStudentFineRowMapper;
-import com.chainsys.libraryapp.dao.mapper.SummaryDetailsDueDateRowMapper;
-import com.chainsys.libraryapp.dao.mapper.SummaryDetailsStudentDetailsRowMapper;
-import com.chainsys.libraryapp.dto.StudentFineSummaryDetails;
-import com.chainsys.libraryapp.dto.SummaryDetailsDueDate;
-import com.chainsys.libraryapp.dto.SummaryDetailsStudentDetails;
+import com.chainsys.libraryapp.dao.mapper.StudentStudentFineRowMapper;
+import com.chainsys.libraryapp.dao.mapper.SummaryDueDateRowMapper;
+import com.chainsys.libraryapp.dao.mapper.SummaryStudentDetailsRowMapper;
+import com.chainsys.libraryapp.dto.StudentFineSummary;
+import com.chainsys.libraryapp.dto.SummaryDueDate;
+import com.chainsys.libraryapp.dto.SummaryStudentDetails;
 import com.chainsys.libraryapp.exception.DbException;
 
 public interface SummaryDAO {
@@ -29,28 +29,28 @@ public interface SummaryDAO {
 			@Bind("fineAmount") Integer fineAmount) throws DbException;
 
 	@SqlQuery("select  d.std_id,s.std_name,s.std_dept,s.std_mob_no,d.book_id,b.book_name,d.issue_date,d.due_date from details d,books b ,student s where s.std_id=d.std_id and d.status=0 and b.book_id=d.book_id and d.book_id=?")
-	@RegisterRowMapper(SummaryDetailsDueDateRowMapper.class)
-	public List<SummaryDetailsDueDate> unReturnedBookDetails(int bookId) throws DbException;
+	@RegisterRowMapper(SummaryDueDateRowMapper.class)
+	public List<SummaryDueDate> unReturnedBookDetails(int bookId) throws DbException;
 
 	@SqlQuery("select sum(fine_amt) from details")
-	@RegisterRowMapper(SummaryDetailsDueDateRowMapper.class)
+	@RegisterRowMapper(SummaryDueDateRowMapper.class)
 	public int totalFineAmount() throws DbException;
 
 	@SqlQuery("select  s.std_name,b.book_name,b.book_id,d.issue_date,d.due_date from details d,books b ,student s where s.std_id=d.std_id and d.status=0 and b.book_id=d.book_id and d.std_id=?")
-	@RegisterRowMapper(SummaryDetailsStudentDetailsRowMapper.class)
-	public List<SummaryDetailsStudentDetails> unReturnedStudentBookDetails(int studentId) throws DbException;
+	@RegisterRowMapper(SummaryStudentDetailsRowMapper.class)
+	public List<SummaryStudentDetails> unReturnedStudentBookDetails(int studentId) throws DbException;
 
 	@SqlQuery("select 1 from details where  std_id=? and book_id=?  and status=0")
 	public Integer bookTaken(int studentId, int bookId) throws DbException;
 
 	@SqlQuery("select  s.std_name,b.book_name,b.book_id,b.book_cat,d.issue_date,d.due_date from details d,books b ,student s where s.std_id=d.std_id and d.status=0 and b.book_id=d.book_id and d.std_id=?")
-	@RegisterRowMapper(StudentDetailsStudentFineRowMapper.class)
-	public List<StudentFineSummaryDetails> totalFineAmountOfStudent(int studentId) throws DbException;
+	@RegisterRowMapper(StudentStudentFineRowMapper.class)
+	public List<StudentFineSummary> totalFineAmountOfStudent(int studentId) throws DbException;
 
 	@SqlQuery("select fn_rem_bks(?) as total from dual")
 	public Integer noOfBooksAvailable(int bookId) throws DbException;
 
 	@SqlQuery("select count(std_id) from details where std_id=? and status=0")
-	@RegisterRowMapper(SummaryDetailsDueDateRowMapper.class)
+	@RegisterRowMapper(SummaryDueDateRowMapper.class)
 	public int limitForStudent(int studentId) throws DbException;
 }

@@ -8,7 +8,7 @@ import org.jdbi.v3.core.statement.StatementContext;
 
 import com.chainsys.libraryapp.model.SummaryDetails;
 
-public class SummaryDetailsRowMapper implements RowMapper<SummaryDetails>{
+public class SummaryRowMapper implements RowMapper<SummaryDetails>{
 	
 
 	public SummaryDetails map(ResultSet rs, StatementContext ctx) throws SQLException {

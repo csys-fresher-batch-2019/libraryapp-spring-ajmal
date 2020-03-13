@@ -8,7 +8,7 @@ import org.jdbi.v3.sqlobject.customizer.BindBean;
 import org.jdbi.v3.sqlobject.statement.SqlQuery;
 import org.jdbi.v3.sqlobject.statement.SqlUpdate;
 
-import com.chainsys.libraryapp.dao.mapper.StudentDetailsRowMapper;
+import com.chainsys.libraryapp.dao.mapper.StudentRowMapper;
 import com.chainsys.libraryapp.exception.DbException;
 import com.chainsys.libraryapp.model.Student;
 
@@ -18,11 +18,11 @@ public interface StudentDAO {
 	public void save(@BindBean Student studentdetails) throws DbException;
 
 	@SqlQuery("select * from student where std_id=?")
-	@RegisterRowMapper(StudentDetailsRowMapper.class)
+	@RegisterRowMapper(StudentRowMapper.class)
 	public Student findById(int studentId) throws DbException;
 
 	@SqlQuery("select * from student")
-	@RegisterRowMapper(StudentDetailsRowMapper.class)
+	@RegisterRowMapper(StudentRowMapper.class)
 	public List<Student> findAll() throws DbException;
 
 	@SqlQuery("select 1 from student where std_id=? and std_dob=?")

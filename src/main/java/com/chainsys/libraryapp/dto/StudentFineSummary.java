@@ -2,7 +2,7 @@ package com.chainsys.libraryapp.dto;
 
 import java.time.LocalDate;
 
-public class StudentFineSummaryDetails {
+public class StudentFineSummary {
 
 	private String studentName;
 	private int bookId;

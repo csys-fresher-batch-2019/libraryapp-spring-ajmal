@@ -6,7 +6,7 @@ import java.util.Scanner;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import com.chainsys.libraryapp.dto.StudentFineSummaryDetails;
+import com.chainsys.libraryapp.dto.StudentFineSummary;
 import com.chainsys.libraryapp.service.SummaryService;
 
 public class TestStudentFinedetails {
@@ -24,8 +24,8 @@ public class TestStudentFinedetails {
 		int studentId = sc.nextInt();
 		int totalFineAmount = 0;
 		String name = null;
-		List<StudentFineSummaryDetails> out = ob.totalFineAmountOfStudent(studentId);
-		for (StudentFineSummaryDetails details : out) {
+		List<StudentFineSummary> out = ob.totalFineAmountOfStudent(studentId);
+		for (StudentFineSummary details : out) {
 			name = details.getStudentName();
 			totalFineAmount = totalFineAmount + details.getFineAmount();
 		}
@@ -33,7 +33,7 @@ public class TestStudentFinedetails {
 		logger.info("Total Fine Amount : " + totalFineAmount);
 //		System.out.println("StudentName : " + name);
 //		System.out.println("Total Fine Amount : " + totalFineAmount);
-		for (StudentFineSummaryDetails details : out) {
+		for (StudentFineSummary details : out) {
 //			System.out.println(details);
 			logger.info("",details);
 		}

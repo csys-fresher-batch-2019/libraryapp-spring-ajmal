@@ -9,7 +9,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.chainsys.libraryapp.dto.SummaryDetailsDueDate;
+import com.chainsys.libraryapp.dto.SummaryDueDate;
 import com.chainsys.libraryapp.service.SummaryService;
 
 /**
@@ -22,7 +22,7 @@ public class UnreturnedBookIdServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		SummaryService ob = new SummaryService();
-		List<SummaryDetailsDueDate> out = null;
+		List<SummaryDueDate> out = null;
 		String bookid = request.getParameter("bookid");
 		int bookId = Integer.valueOf(bookid);
 		System.out.println(bookId);

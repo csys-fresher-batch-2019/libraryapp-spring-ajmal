@@ -8,7 +8,7 @@ import org.jdbi.v3.core.statement.StatementContext;
 
 import com.chainsys.libraryapp.model.Student;
 
-public class StudentDetailsRowMapper implements RowMapper<Student>{
+public class StudentRowMapper implements RowMapper<Student>{
 
 	public Student map(ResultSet rs, StatementContext ctx) throws SQLException {
 		Student ob = new Student();

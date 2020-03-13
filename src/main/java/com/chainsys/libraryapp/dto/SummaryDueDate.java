@@ -4,7 +4,7 @@ import java.time.LocalDate;
 
 import lombok.Data;
 @Data
-public class SummaryDetailsDueDate {
+public class SummaryDueDate {
 	private int bookId;
 	private int studentId;
 	private String studentName;

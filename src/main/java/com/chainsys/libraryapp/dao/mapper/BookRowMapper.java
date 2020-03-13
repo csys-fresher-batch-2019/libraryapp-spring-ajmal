@@ -8,7 +8,7 @@ import org.jdbi.v3.core.statement.StatementContext;
 
 import com.chainsys.libraryapp.model.Book;
 
-public class BookDetailsRowMapper implements RowMapper<Book>{
+public class BookRowMapper implements RowMapper<Book>{
 
 	public Book map(ResultSet rs, StatementContext ctx) throws SQLException {
 		Book ob= new Book();

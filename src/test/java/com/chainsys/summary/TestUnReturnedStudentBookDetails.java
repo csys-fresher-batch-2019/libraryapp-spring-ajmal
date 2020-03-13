@@ -6,7 +6,7 @@ import java.util.Scanner;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import com.chainsys.libraryapp.dto.SummaryDetailsStudentDetails;
+import com.chainsys.libraryapp.dto.SummaryStudentDetails;
 import com.chainsys.libraryapp.service.SummaryService;
 
 public abstract class TestUnReturnedStudentBookDetails {
@@ -20,10 +20,10 @@ public abstract class TestUnReturnedStudentBookDetails {
 //		System.out.print("Enter the Student id : ");
 		int studentId = sc.nextInt();
 
-		List<SummaryDetailsStudentDetails> out = null;
+		List<SummaryStudentDetails> out = null;
 		out = ob.unReturnedStudentBookDetails(studentId);
 		if (out != null) {
-			for (SummaryDetailsStudentDetails details : out) {
+			for (SummaryStudentDetails details : out) {
 				logger.info("",details);
 //				System.out.println(details);
 			}
