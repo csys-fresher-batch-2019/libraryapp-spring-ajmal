@@ -10,7 +10,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.chainsys.libraryapp.model.Student;
-import com.chainsys.libraryapp.service.StudentDetailsService;
+import com.chainsys.libraryapp.service.StudentService;
 
 /**
  * Servlet implementation class AddNewStudentServlet
@@ -21,7 +21,7 @@ public class AddNewStudentServlet extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		StudentDetailsService ob = new StudentDetailsService();
+		StudentService ob = new StudentService();
 		String studentName = request.getParameter("studentname");
 		String studentDepartment = request.getParameter("department");
 		String date = request.getParameter("dob");

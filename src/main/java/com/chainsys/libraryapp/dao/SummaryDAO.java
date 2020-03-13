@@ -16,7 +16,7 @@ import com.chainsys.libraryapp.dto.SummaryDetailsDueDate;
 import com.chainsys.libraryapp.dto.SummaryDetailsStudentDetails;
 import com.chainsys.libraryapp.exception.DbException;
 
-public interface SummaryDetailsDAO {
+public interface SummaryDAO {
 
 	@SqlUpdate("insert into details(std_id,book_id,book_count) values(?,?,book_count_sq.nextval)")
 	public boolean addNewEntry(int studentId, int bookId) throws DbException;

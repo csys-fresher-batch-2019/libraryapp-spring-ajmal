@@ -10,7 +10,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.chainsys.libraryapp.model.Book;
-import com.chainsys.libraryapp.service.BookDetailsService;
+import com.chainsys.libraryapp.service.BookService;
 
 /**
  * Servlet implementation class SearchByBookNameStdServlet
@@ -21,7 +21,7 @@ public class SearchByBookNameStdServlet extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		BookDetailsService ob = new BookDetailsService();
+		BookService ob = new BookService();
 		String bookName = request.getParameter("bookname");
 		List<Book> books = null;
 		try {

@@ -4,7 +4,7 @@ import java.time.LocalDate;
 import java.util.List;
 
 import com.chainsys.libraryapp.dao.DAOFactory;
-import com.chainsys.libraryapp.dao.StudentDetailsDAO;
+import com.chainsys.libraryapp.dao.StudentDAO;
 import com.chainsys.libraryapp.exception.DbException;
 import com.chainsys.libraryapp.exception.ServiceException;
 import com.chainsys.libraryapp.exception.ValidationException;
@@ -12,9 +12,9 @@ import com.chainsys.libraryapp.model.Student;
 import com.chainsys.libraryapp.util.Constant;
 import com.chainsys.libraryapp.validation.Validation;
 
-public class StudentDetailsService {
+public class StudentService {
 
-	private StudentDetailsDAO studentDetailsDAO = DAOFactory.getStudentDetailDAO();
+	private StudentDAO studentDetailsDAO = DAOFactory.getStudentDAO();
 
 	public void addStudentDetails(Student studentdetails) throws ServiceException {
 		try {

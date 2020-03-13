@@ -5,13 +5,13 @@ import java.util.Scanner;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import com.chainsys.libraryapp.service.SummaryDetailsService;
+import com.chainsys.libraryapp.service.SummaryService;
 
 public class TestUpdateReturnRecord {
 	private final static Logger logger = LoggerFactory.getLogger(TestUpdateReturnRecord.class);
 
 	public static void main(String[] args) throws Exception {
-		SummaryDetailsService ob = new SummaryDetailsService();
+		SummaryService ob = new SummaryService();
 		Scanner sc = new Scanner(System.in);
 		logger.debug("Enter the BookId : ");
 //		System.out.print("Enter the BookId : ");

@@ -4,10 +4,10 @@ import java.time.LocalDate;
 import java.time.temporal.ChronoUnit;
 import java.util.List;
 
-import com.chainsys.libraryapp.dao.BookDetailsDAO;
+import com.chainsys.libraryapp.dao.BookDAO;
 import com.chainsys.libraryapp.dao.DAOFactory;
-import com.chainsys.libraryapp.dao.StudentDetailsDAO;
-import com.chainsys.libraryapp.dao.SummaryDetailsDAO;
+import com.chainsys.libraryapp.dao.StudentDAO;
+import com.chainsys.libraryapp.dao.SummaryDAO;
 import com.chainsys.libraryapp.dto.StudentFineSummaryDetails;
 import com.chainsys.libraryapp.dto.SummaryDetailsDueDate;
 import com.chainsys.libraryapp.dto.SummaryDetailsStudentDetails;
@@ -17,11 +17,11 @@ import com.chainsys.libraryapp.exception.ValidationException;
 import com.chainsys.libraryapp.util.Constant;
 import com.chainsys.libraryapp.validation.Validation;
 
-public class SummaryDetailsService {
+public class SummaryService {
 
-	static SummaryDetailsDAO summaryDetailsDAO = DAOFactory.getSummaryDetailDAO();
-	static BookDetailsDAO bookDetailsDAO = DAOFactory.getBookDetailDAO();
-	static StudentDetailsDAO studentDetailsDAO = DAOFactory.getStudentDetailDAO();
+	static SummaryDAO summaryDetailsDAO = DAOFactory.getSummaryDAO();
+	static BookDAO bookDetailsDAO = DAOFactory.getBookDAO();
+	static StudentDAO studentDetailsDAO = DAOFactory.getStudentDAO();
 
 	public void addNewEntry(int studentId, int bookId) throws ServiceException {
 

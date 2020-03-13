@@ -51,15 +51,15 @@
 					<tbody>
 						<c:forEach items="${BOOK_LIST}" var="b">
 							<tr>
-								<td>${b.bookId}</td>
-								<td>${b.bookName}</td>
-								<td>${b.bookCategory}</td>
-								<td>${b.bookAutherName}</td>
-								<td>${b.bookEdition}</td>
-								<td>Rs.${b.bookPrice}</td>
-								<td>${b.bookPublishedDate}</td>
-								<td>${b.bookCopies}</td>
-								<td>${b.bookPages}</td>
+								<td>${b.id}</td>
+								<td>${b.name}</td>
+								<td>${b.category}</td>
+								<td>${b.authorName}</td>
+								<td>${b.edition}</td>
+								<td>Rs.${b.price}</td>
+								<td>${b.publishedDate}</td>
+								<td>${b.copies}</td>
+								<td>${b.pages}</td>
 							</tr>
 						</c:forEach>
 					</tbody>

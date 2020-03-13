@@ -8,13 +8,13 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import com.chainsys.libraryapp.dto.SummaryDetailsDueDate;
-import com.chainsys.libraryapp.service.SummaryDetailsService;
+import com.chainsys.libraryapp.service.SummaryService;
 
 public class TestUnReturnedBookDetails {
 	private final static Logger logger = LoggerFactory.getLogger(TestUnReturnedBookDetails.class);
 
 	public static void main(String[] args) throws Exception {
-		SummaryDetailsService ob = new SummaryDetailsService();
+		SummaryService ob = new SummaryService();
 		logger.debug("Enter the BookId to be found :");
 //		System.out.print("Enter the BookId to be found :");
 		Scanner sc = new Scanner(System.in);

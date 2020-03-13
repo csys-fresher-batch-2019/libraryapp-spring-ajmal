@@ -5,7 +5,7 @@ import java.util.List;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import com.chainsys.libraryapp.dao.BookDetailsDAO;
+import com.chainsys.libraryapp.dao.BookDAO;
 import com.chainsys.libraryapp.dao.DAOFactory;
 import com.chainsys.libraryapp.exception.DbException;
 import com.chainsys.libraryapp.exception.ServiceException;
@@ -14,11 +14,11 @@ import com.chainsys.libraryapp.model.Book;
 import com.chainsys.libraryapp.util.Constant;
 import com.chainsys.libraryapp.validation.Validation;
 
-public class BookDetailsService {
+public class BookService {
 
-	private final static Logger logger = LoggerFactory.getLogger(BookDetailsService.class);
+	private final static Logger logger = LoggerFactory.getLogger(BookService.class);
 	// private BookDetailsDAO bookDetailsDAO = new BookDetailsDAOImp();
-	private BookDetailsDAO bookDetailsDAO = DAOFactory.getBookDetailDAO();
+	private BookDAO bookDetailsDAO = DAOFactory.getBookDAO();
 
 	public void addNewBook(Book bookdetails) throws ServiceException {
 		try {

@@ -7,7 +7,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import com.chainsys.libraryapp.dto.StudentFineSummaryDetails;
-import com.chainsys.libraryapp.service.SummaryDetailsService;
+import com.chainsys.libraryapp.service.SummaryService;
 
 public class TestStudentFinedetails {
 	private final static Logger logger = LoggerFactory.getLogger(TestStudentFinedetails.class);
@@ -15,7 +15,7 @@ public class TestStudentFinedetails {
 	public static void main(String[] args) throws Exception {
 		//LoggerUtil logger = LoggerUtil.getInstance();
 		
-		SummaryDetailsService ob = new SummaryDetailsService();
+		SummaryService ob = new SummaryService();
 		Scanner sc = new Scanner(System.in);
 		// To calculate the Total Fine amount of a student along with their not Returned
 		// books

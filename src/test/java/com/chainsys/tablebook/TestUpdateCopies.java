@@ -8,13 +8,13 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import com.chainsys.libraryapp.model.Book;
-import com.chainsys.libraryapp.service.BookDetailsService;
+import com.chainsys.libraryapp.service.BookService;
 
 public class TestUpdateCopies {
 	private final static Logger logger = LoggerFactory.getLogger(TestUpdateCopies.class);
 
 	public static void main(String[] args) throws Exception {
-		BookDetailsService obj = new BookDetailsService();
+		BookService obj = new BookService();
 		Scanner sc = new Scanner(System.in);
 		logger.debug("Enter the Book Name : ");
 		String bookName = sc.nextLine();

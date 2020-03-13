@@ -9,7 +9,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import com.chainsys.libraryapp.service.SummaryDetailsService;
+import com.chainsys.libraryapp.service.SummaryService;
 
 /**
  * Servlet implementation class CheckLimtOfStudentServlet
@@ -20,7 +20,7 @@ public class CheckLimtOfStudentServlet extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		SummaryDetailsService ob = new SummaryDetailsService();
+		SummaryService ob = new SummaryService();
 		HttpSession ses = request.getSession();
 		int studentId = (int) ses.getAttribute("studentId");
 		try {

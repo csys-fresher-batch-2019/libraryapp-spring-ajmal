@@ -6,36 +6,36 @@ import com.chainsys.libraryapp.util.Connectionutil;
 
 public class DAOFactory {
 
-	public static BookDetailsDAO getBookDetailDAO() {
+	public static BookDAO getBookDAO() {
 
 		Jdbi jdbi = Connectionutil.getJdbi();
-		BookDetailsDAO bookDetailsDAO = jdbi.onDemand(BookDetailsDAO.class);
+		BookDAO bookDAO = jdbi.onDemand(BookDAO.class);
 
-		return bookDetailsDAO;
+		return bookDAO;
 	}
 
-	public static StudentDetailsDAO getStudentDetailDAO() {
+	public static StudentDAO getStudentDAO() {
 
 		Jdbi jdbi = Connectionutil.getJdbi();
-		StudentDetailsDAO studentDetailsDAO = jdbi.onDemand(StudentDetailsDAO.class);
+		StudentDAO studentDAO = jdbi.onDemand(StudentDAO.class);
 
-		return studentDetailsDAO;
+		return studentDAO;
 	}
 
-	public static SummaryDetailsDAO getSummaryDetailDAO() {
+	public static SummaryDAO getSummaryDAO() {
 
 		Jdbi jdbi = Connectionutil.getJdbi();
-		SummaryDetailsDAO summaryDetailsDAO = jdbi.onDemand(SummaryDetailsDAO.class);
+		SummaryDAO summaryDAO = jdbi.onDemand(SummaryDAO.class);
 
-		return summaryDetailsDAO;
+		return summaryDAO;
 	}
 
-	public static AdminDetailsDAO getAdminDetailDAO() {
+	public static AdminDAO getAdminDAO() {
 
 		Jdbi jdbi = Connectionutil.getJdbi();
-		AdminDetailsDAO adminDetailsDAO = jdbi.onDemand(AdminDetailsDAO.class);
+		AdminDAO adminDAO = jdbi.onDemand(AdminDAO.class);
 
-		return adminDetailsDAO;
+		return adminDAO;
 	}
 
 }

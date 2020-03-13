@@ -12,7 +12,7 @@ import com.chainsys.libraryapp.dao.mapper.StudentDetailsRowMapper;
 import com.chainsys.libraryapp.exception.DbException;
 import com.chainsys.libraryapp.model.Student;
 
-public interface StudentDetailsDAO {
+public interface StudentDAO {
 
 	@SqlUpdate("insert into student(std_name,std_dept,std_dob,std_mail_id,std_mob_no,joining_yr,std_id) values(:studentName,:studentDepatment,:dateOfBirth,:studentMailId,:mobileNumber,:yearOfJoin,std_seq.nextval)")
 	public void save(@BindBean Student studentdetails) throws DbException;

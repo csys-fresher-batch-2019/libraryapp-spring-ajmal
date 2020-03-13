@@ -7,13 +7,13 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import com.chainsys.libraryapp.model.Student;
-import com.chainsys.libraryapp.service.StudentDetailsService;
+import com.chainsys.libraryapp.service.StudentService;
 
 public class TestDisplayAllStudentDetails {
 	private final static Logger logger = LoggerFactory.getLogger(TestDisplayAllStudentDetails.class);
 
 	public static void main(String[] args) throws Exception {
-		StudentDetailsService ob = new StudentDetailsService();
+		StudentService ob = new StudentService();
 		List<Student> list = new ArrayList<Student>();
 		list = ob.displayAllStudents();
 		for (Student details : list) {

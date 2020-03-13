@@ -8,7 +8,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.chainsys.libraryapp.service.BookDetailsService;
+import com.chainsys.libraryapp.service.BookService;
 
 /**
  * Servlet implementation class UpdateBookCopiesServlet
@@ -19,7 +19,7 @@ public class UpdateBookCopiesServlet extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		BookDetailsService ob = new BookDetailsService();
+		BookService ob = new BookService();
 		String bookid = request.getParameter("bookid");
 		int bookId = Integer.valueOf(bookid);
 		String bookcopies = request.getParameter("bookcopies");

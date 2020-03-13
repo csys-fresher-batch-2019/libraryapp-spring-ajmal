@@ -1,15 +1,15 @@
 package com.chainsys.libraryapp.service;
 
-import com.chainsys.libraryapp.dao.AdminDetailsDAO;
+import com.chainsys.libraryapp.dao.AdminDAO;
 import com.chainsys.libraryapp.dao.DAOFactory;
 import com.chainsys.libraryapp.exception.DbException;
 import com.chainsys.libraryapp.exception.ServiceException;
 import com.chainsys.libraryapp.model.Admin;
 import com.chainsys.libraryapp.util.Constant;
 
-public class AdminDetailsService {
+public class AdminService {
 
-	private AdminDetailsDAO adminDetailsDAO = DAOFactory.getAdminDetailDAO();
+	private AdminDAO adminDetailsDAO = DAOFactory.getAdminDAO();
 
 	public void addNewAdmin(Admin admindetails) throws ServiceException {
 		try {

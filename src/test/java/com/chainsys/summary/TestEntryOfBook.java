@@ -5,14 +5,14 @@ import java.util.Scanner;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import com.chainsys.libraryapp.service.SummaryDetailsService;
+import com.chainsys.libraryapp.service.SummaryService;
 
 public class TestEntryOfBook {
 	private final static Logger logger = LoggerFactory.getLogger(TestEntryOfBook.class);
 
 	public static void main(String[] args) throws Exception {
 
-		SummaryDetailsService ob = new SummaryDetailsService();
+		SummaryService ob = new SummaryService();
 		Scanner sc = new Scanner(System.in);
 //		System.out.print("Enter Book ID : ");
 		logger.debug("Enter Book ID : ");

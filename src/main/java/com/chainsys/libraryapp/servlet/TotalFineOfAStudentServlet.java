@@ -11,7 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import com.chainsys.libraryapp.dto.StudentFineSummaryDetails;
-import com.chainsys.libraryapp.service.SummaryDetailsService;
+import com.chainsys.libraryapp.service.SummaryService;
 
 /**
  * Servlet implementation class TotalFineOfAStudentServlet
@@ -22,7 +22,7 @@ public class TotalFineOfAStudentServlet extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		SummaryDetailsService ob = new SummaryDetailsService();
+		SummaryService ob = new SummaryService();
 		HttpSession ses = request.getSession();
 		int studentId = (int) ses.getAttribute("studentId");
 		int totalFineAmount = 0;

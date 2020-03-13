@@ -43,18 +43,17 @@
 					</tr>
 				</thead>
 				<tbody>
-
 					<tr>
-						<td>${BOOK_LIST.bookId}</td>
-						<td>${BOOK_LIST.bookName}</td>
-						<td>${BOOK_LIST.bookCategory}</td>
-						<td>${BOOK_LIST.bookAutherName}</td>
-						<td>${BOOK_LIST.bookEdition}</td>
-						<td>Rs.${BOOK_LIST.bookPrice}</td>
-						<td>${BOOK_LIST.bookPublishedDate}</td>
-						<td>${BOOK_LIST.bookCopies}</td>
+						<td>${BOOK_LIST.id}</td>
+						<td>${BOOK_LIST.name}</td>
+						<td>${BOOK_LIST.category}</td>
+						<td>${BOOK_LIST.authorName}</td>
+						<td>${BOOK_LIST.edition}</td>
+						<td>Rs.${BOOK_LIST.price}</td>
+						<td>${BOOK_LIST.publishedDate}</td>
+						<td>${BOOK_LIST.copies}</td>
 						<td>${AvailableCopies}</td>
-						<td>${BOOK_LIST.bookPages}</td>
+						<td>${BOOK_LIST.pages}</td>
 					</tr>
 				</tbody>
 			</table>

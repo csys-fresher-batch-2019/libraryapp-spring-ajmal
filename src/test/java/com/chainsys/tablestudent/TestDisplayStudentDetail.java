@@ -6,13 +6,13 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import com.chainsys.libraryapp.model.Student;
-import com.chainsys.libraryapp.service.StudentDetailsService;
+import com.chainsys.libraryapp.service.StudentService;
 
 public class TestDisplayStudentDetail {
 	private final static Logger logger = LoggerFactory.getLogger(TestDisplayStudentDetail.class);
 
 	public static void main(String[] args) throws Exception {
-		StudentDetailsService ob = new StudentDetailsService();
+		StudentService ob = new StudentService();
 		Scanner sc = new Scanner(System.in);
 		logger.debug("Enter Student Id - ");
 		int studentId = sc.nextInt();

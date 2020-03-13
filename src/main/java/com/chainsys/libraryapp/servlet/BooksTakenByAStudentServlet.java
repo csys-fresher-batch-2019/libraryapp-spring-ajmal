@@ -11,7 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import com.chainsys.libraryapp.dto.SummaryDetailsStudentDetails;
-import com.chainsys.libraryapp.service.SummaryDetailsService;
+import com.chainsys.libraryapp.service.SummaryService;
 
 /**
  * Servlet implementation class BooksTakenByAStudentServlet
@@ -22,7 +22,7 @@ public class BooksTakenByAStudentServlet extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		SummaryDetailsService ob = new SummaryDetailsService();
+		SummaryService ob = new SummaryService();
 		HttpSession session = request.getSession();
 		int studentId = (int) session.getAttribute("studentId");
 		System.out.println(studentId);

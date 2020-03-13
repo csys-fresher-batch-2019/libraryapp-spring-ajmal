@@ -8,22 +8,22 @@ import org.junit.Ignore;
 import org.junit.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
-import com.chainsys.libraryapp.dao.BookDetailsDAO;
-import com.chainsys.libraryapp.dao.StudentDetailsDAO;
-import com.chainsys.libraryapp.dao.SummaryDetailsDAO;
+import com.chainsys.libraryapp.dao.BookDAO;
+import com.chainsys.libraryapp.dao.StudentDAO;
+import com.chainsys.libraryapp.dao.SummaryDAO;
 import com.chainsys.libraryapp.model.Book;
-import com.chainsys.libraryapp.service.SummaryDetailsService;
+import com.chainsys.libraryapp.service.SummaryService;
 import com.chainsys.libraryapp.util.Connectionutil;
 
 import static org.junit.Assert.*;
 
 @SpringBootTest
 public class LibraryappApplicationTests {
-	SummaryDetailsService ob = new SummaryDetailsService();
+	SummaryService ob = new SummaryService();
 	static Jdbi jdbi = Connectionutil.getJdbi();
-	StudentDetailsDAO obj = jdbi.onDemand(StudentDetailsDAO.class);
-	BookDetailsDAO obj1 = jdbi.onDemand(BookDetailsDAO.class);
-	SummaryDetailsDAO summaryDetailsDAO = jdbi.onDemand(SummaryDetailsDAO.class);
+	StudentDAO obj = jdbi.onDemand(StudentDAO.class);
+	BookDAO obj1 = jdbi.onDemand(BookDAO.class);
+	SummaryDAO summaryDetailsDAO = jdbi.onDemand(SummaryDAO.class);
 
 	@Test
 	@Ignore
@@ -31,7 +31,7 @@ public class LibraryappApplicationTests {
 		int studentId = 1001;
 		int bookId = 121;
 		int expected = 0;
-		SummaryDetailsService ob = new SummaryDetailsService();
+		SummaryService ob = new SummaryService();
 		int actual = ob.calculateFineAmount(studentId, bookId);
 		Assert.assertEquals(expected, actual);
 	}
@@ -42,7 +42,7 @@ public class LibraryappApplicationTests {
 		int bookId = 101;
 		int studentId = 1001;
 		int expected = 624;
-		SummaryDetailsService ob = new SummaryDetailsService();
+		SummaryService ob = new SummaryService();
 		int actual = ob.calculateFineAmount(studentId, bookId);
 		Assert.assertEquals(expected, actual);
 	}

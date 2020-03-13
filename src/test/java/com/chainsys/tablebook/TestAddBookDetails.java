@@ -7,13 +7,13 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import com.chainsys.libraryapp.model.Book;
-import com.chainsys.libraryapp.service.BookDetailsService;
+import com.chainsys.libraryapp.service.BookService;
 
 public class TestAddBookDetails {
 	private final static Logger logger = LoggerFactory.getLogger(TestAddBookDetails.class);
 
 	public static void main(String[] args) throws Exception {
-		BookDetailsService obj = new BookDetailsService();
+		BookService obj = new BookService();
 
 		logger.debug("Entre values \nBook Name :");
 		Scanner sc = new Scanner(System.in);
@@ -36,14 +36,14 @@ public class TestAddBookDetails {
 		Date date = Date.valueOf(bookPublishedDate);
 
 		Book ob = new Book();
-		ob.setBookName(bookName);
-		ob.setBookCategory(bookCategory);
-		ob.setBookAutherName(bookAuthor);
-		ob.setBookEdition(bookEdition);
-		ob.setBookPages(bookPages);
-		ob.setBookCopies(bookCopies);
-		ob.setBookPrice(bookPrice);
-		ob.setBookPublishedDate(date.toLocalDate());
+		ob.setName(bookName);
+		ob.setCategory(bookCategory);
+		ob.setAuthorName(bookAuthor);
+		ob.setEdition(bookEdition);
+		ob.setPages(bookPages);
+		ob.setCopies(bookCopies);
+		ob.setPrice(bookPrice);
+		ob.setPublishedDate(date.toLocalDate());
 
 		obj.addNewBook(ob);
 		logger.info("Added New Book");

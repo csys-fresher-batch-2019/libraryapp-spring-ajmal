@@ -37,12 +37,12 @@
          <tbody>
         <c:forEach items="${STUDENT_LIST}" var="b">
   <tr>
-  <td>${b.studentId}</td>
-  <td>${b.studentName}</td>
-  <td>${b.dateOfBirth}</td>
-  <td>${b.studentDepatment}</td>
+  <td>${b.id}</td>
+  <td>${b.name}</td>
+  <td>${b.dob}</td>
+  <td>${b.dept}</td>
   <td>${b.mobileNumber}</td>
-  <td>${b.studentMailId}</td>
+  <td>${b.mailId}</td>
   <td>${b.yearOfJoin}</td>
   </tr>
     </c:forEach>

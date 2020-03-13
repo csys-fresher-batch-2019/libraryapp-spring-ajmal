@@ -12,13 +12,13 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.chainsys.libraryapp.model.Book;
-import com.chainsys.libraryapp.service.BookDetailsService;
+import com.chainsys.libraryapp.service.BookService;
 
 @CrossOrigin(origins = "*")
 @RestController
 @RequestMapping("api")
 public class ProductController {
-	BookDetailsService ob = new BookDetailsService();
+	BookService ob = new BookService();
 
 	@PostMapping("/AddBook")
 	public void addBooks(@RequestParam("bookname") String bookname, @RequestParam("bookauthor") String bookauthor,

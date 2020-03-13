@@ -12,7 +12,7 @@ import com.chainsys.libraryapp.dao.mapper.BookDetailsRowMapper;
 import com.chainsys.libraryapp.exception.DbException;
 import com.chainsys.libraryapp.model.Book;
 
-public interface BookDetailsDAO {
+public interface BookDAO {
 
 	@SqlUpdate("insert into books(book_name,book_cat,book_author,book_edition,no_of_bks,no_of_pgs,published_date,book_price,book_id)values  (:bookName,:bookCategory,:bookAutherName,:bookEdition,:bookCopies,:bookPages,:bookPublishedDate,:bookPrice,id_seq.nextval)")
 	public void save(@BindBean Book bookdetails) throws DbException;

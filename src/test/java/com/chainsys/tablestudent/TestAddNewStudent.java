@@ -7,7 +7,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import com.chainsys.libraryapp.model.Student;
-import com.chainsys.libraryapp.service.StudentDetailsService;
+import com.chainsys.libraryapp.service.StudentService;
 
 public class TestAddNewStudent {
 	private final static Logger logger = LoggerFactory.getLogger(TestAddNewStudent.class);
@@ -28,12 +28,12 @@ public class TestAddNewStudent {
 		int yearOfJoin = sc.nextInt();
 		Date date = Date.valueOf(dateOfBirth);
 
-		StudentDetailsService obj = new StudentDetailsService();
+		StudentService obj = new StudentService();
 		Student ob = new Student();
-		ob.setStudentName(studentName);
-		ob.setStudentDepatment(studentDepartment);
-		ob.setDateOfBirth(date.toLocalDate());
-		ob.setStudentMailId(studentMailId);
+		ob.setName(studentName);
+		ob.setDept(studentDepartment);
+		ob.setDob(date.toLocalDate());
+		ob.setMailId(studentMailId);
 		ob.setMobileNumber(mobileNumber);
 		ob.setYearOfJoin(yearOfJoin);
 

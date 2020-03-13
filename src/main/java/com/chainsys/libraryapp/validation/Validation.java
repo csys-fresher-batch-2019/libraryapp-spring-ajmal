@@ -1,14 +1,14 @@
 package com.chainsys.libraryapp.validation;
 
-import com.chainsys.libraryapp.dao.BookDetailsDAO;
+import com.chainsys.libraryapp.dao.BookDAO;
 import com.chainsys.libraryapp.dao.DAOFactory;
-import com.chainsys.libraryapp.dao.StudentDetailsDAO;
+import com.chainsys.libraryapp.dao.StudentDAO;
 import com.chainsys.libraryapp.exception.ValidationException;
 
 public class Validation {
 
-	private static BookDetailsDAO bookDetailsDAO = DAOFactory.getBookDetailDAO();
-	private static StudentDetailsDAO studentDetailsDAO = DAOFactory.getStudentDetailDAO();
+	private static BookDAO bookDetailsDAO = DAOFactory.getBookDAO();
+	private static StudentDAO studentDetailsDAO = DAOFactory.getStudentDAO();
 
 	/**
 	 * if invalid bookId throw exception

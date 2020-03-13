@@ -11,7 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.chainsys.libraryapp.exception.ServiceException;
 import com.chainsys.libraryapp.model.Admin;
-import com.chainsys.libraryapp.service.AdminDetailsService;
+import com.chainsys.libraryapp.service.AdminService;
 
 /**
  * Servlet implementation class AddNewAdminServlet
@@ -22,7 +22,7 @@ public class AddNewAdminServlet extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		AdminDetailsService ob = new AdminDetailsService();
+		AdminService ob = new AdminService();
 		String adminName = request.getParameter("adminname");
 		String dob = request.getParameter("dob");
 		String email = request.getParameter("email");

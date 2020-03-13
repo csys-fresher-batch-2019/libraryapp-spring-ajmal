@@ -8,13 +8,13 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import com.chainsys.libraryapp.model.Book;
-import com.chainsys.libraryapp.service.BookDetailsService;
+import com.chainsys.libraryapp.service.BookService;
 
 public class TestSearchByName {
 	private final static Logger logger = LoggerFactory.getLogger(TestSearchByName.class);
 
 	public static void main(String[] args) throws Exception {
-		BookDetailsService ob = new BookDetailsService();
+		BookService ob = new BookService();
 		List<Book> list = new ArrayList<>();
 		logger.debug("Enter the name to be searched : ");
 		Scanner sc = new Scanner(System.in);
