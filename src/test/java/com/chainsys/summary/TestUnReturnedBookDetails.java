@@ -7,7 +7,7 @@ import java.util.Scanner;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import com.chainsys.libraryapp.dto.SummaryDueDate;
+import com.chainsys.libraryapp.dto.SummaryDueDateDTO;
 import com.chainsys.libraryapp.service.SummaryService;
 
 public class TestUnReturnedBookDetails {
@@ -19,13 +19,13 @@ public class TestUnReturnedBookDetails {
 //		System.out.print("Enter the BookId to be found :");
 		Scanner sc = new Scanner(System.in);
 		int bookId = sc.nextInt();
-		List<SummaryDueDate> out = new ArrayList<>();
+		List<SummaryDueDateDTO> out = new ArrayList<>();
 		out = ob.unReturnedBookDetails(bookId);
 		if (out.isEmpty()) {
 			logger.info("No Book has been Taken");
 //			System.out.println("No Book has been Taken");
 		} else {
-			for (SummaryDueDate details : out) {
+			for (SummaryDueDateDTO details : out) {
 //				System.out.println(details);
 				logger.error("",details);
 			}

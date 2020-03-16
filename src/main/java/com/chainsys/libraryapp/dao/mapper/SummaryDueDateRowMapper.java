@@ -6,12 +6,12 @@ import java.sql.SQLException;
 import org.jdbi.v3.core.mapper.RowMapper;
 import org.jdbi.v3.core.statement.StatementContext;
 
-import com.chainsys.libraryapp.dto.SummaryDueDate;
+import com.chainsys.libraryapp.dto.SummaryDueDateDTO;
 
-public class SummaryDueDateRowMapper implements RowMapper<SummaryDueDate>{
+public class SummaryDueDateRowMapper implements RowMapper<SummaryDueDateDTO>{
 
-	public SummaryDueDate map(ResultSet rs, StatementContext ctx) throws SQLException {
-		SummaryDueDate ob = new SummaryDueDate();
+	public SummaryDueDateDTO map(ResultSet rs, StatementContext ctx) throws SQLException {
+		SummaryDueDateDTO ob = new SummaryDueDateDTO();
 		ob.setBookId(rs.getInt("book_id"));
 		ob.setStudentId(rs.getInt("std_id"));
 		ob.setStudentName(rs.getString("std_name"));

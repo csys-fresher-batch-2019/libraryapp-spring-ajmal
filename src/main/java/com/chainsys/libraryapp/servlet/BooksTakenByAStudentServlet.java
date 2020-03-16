@@ -10,7 +10,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import com.chainsys.libraryapp.dto.SummaryStudentDetails;
+import com.chainsys.libraryapp.dto.SummaryStudentDetailsDTO;
 import com.chainsys.libraryapp.service.SummaryService;
 
 /**
@@ -26,7 +26,7 @@ public class BooksTakenByAStudentServlet extends HttpServlet {
 		HttpSession session = request.getSession();
 		int studentId = (int) session.getAttribute("studentId");
 		System.out.println(studentId);
-		List<SummaryStudentDetails> out = null;
+		List<SummaryStudentDetailsDTO> out = null;
 		try {
 			out = ob.unReturnedStudentBookDetails(studentId);
 			System.out.println(out);

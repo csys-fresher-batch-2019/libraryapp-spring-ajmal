@@ -33,6 +33,6 @@ public interface BookDAO {
 	public List<Book> findByName(String bookName) throws DbException;
 
 	@SqlQuery("select 1 from books where book_id=?")
-	public Integer checkBookId(int bookId);
+	public Integer exist(int bookId);
 
 }

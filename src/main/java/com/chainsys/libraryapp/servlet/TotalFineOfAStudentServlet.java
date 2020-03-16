@@ -10,7 +10,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import com.chainsys.libraryapp.dto.StudentFineSummary;
+import com.chainsys.libraryapp.dto.StudentFineSummaryDTO;
 import com.chainsys.libraryapp.service.SummaryService;
 
 /**
@@ -27,10 +27,10 @@ public class TotalFineOfAStudentServlet extends HttpServlet {
 		int studentId = (int) ses.getAttribute("studentId");
 		int totalFineAmount = 0;
 		String name = null;
-		List<StudentFineSummary> out = null;
+		List<StudentFineSummaryDTO> out = null;
 		try {
 			out = ob.totalFineAmountOfStudent(studentId);
-			for (StudentFineSummary details : out) {
+			for (StudentFineSummaryDTO details : out) {
 				name = details.getStudentName();
 				totalFineAmount = totalFineAmount + details.getFineAmount();
 			}

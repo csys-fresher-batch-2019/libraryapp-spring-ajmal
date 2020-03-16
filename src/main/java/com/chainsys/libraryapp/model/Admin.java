@@ -11,7 +11,7 @@ public class Admin {
 	private int id;
 	private String name;
 	private String mailId;
-	private long mobileNo;
+	private Long mobileNo;
 	private String gender;
 	private LocalDate dob;
 	private String password;

@@ -10,6 +10,7 @@ import com.chainsys.libraryapp.model.Student;
 
 public class StudentRowMapper implements RowMapper<Student> {
 
+	@Override
 	public Student map(ResultSet rs, StatementContext ctx) throws SQLException {
 		Student ob = new Student();
 		ob.setId(rs.getInt("std_id"));
@@ -18,7 +19,7 @@ public class StudentRowMapper implements RowMapper<Student> {
 		ob.setDob(rs.getDate("std_dob").toLocalDate());
 		ob.setMailId(rs.getString("std_mail_id"));
 		ob.setMobileNumber(rs.getLong("std_mob_no"));
-		ob.setYearOfJoin(rs.getInt("joining_yr"));
+		ob.setYearOfJoining(rs.getInt("joining_yr"));
 		return ob;
 
 	}

@@ -15,12 +15,12 @@ public class Student {
 	private String dept;
 	private LocalDate dob;
 	private String mailId;
-	private long mobileNumber;
-	private int yearOfJoin;
+	private Long mobileNumber;
+	private int yearOfJoining;
 
 	@Override
 	public String toString() {
 		return "Student [id=" + id + ", name=" + name + ", dept=" + dept + ", dob=" + dob + ", mailId=" + mailId
-				+ ", mobileNumber=" + mobileNumber + ", yearOfJoin=" + yearOfJoin + "]";
+				+ ", mobileNumber=" + mobileNumber + ", yearOfJoin=" + yearOfJoining + "]";
 	}
 }

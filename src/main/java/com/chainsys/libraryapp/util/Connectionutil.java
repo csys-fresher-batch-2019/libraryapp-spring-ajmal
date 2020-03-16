@@ -11,22 +11,20 @@ import com.chainsys.libraryapp.exception.DbException;
 
 public class Connectionutil {
 	public static Connection getConnection() throws DbException {
-		Connection connection = null; 
+		Connection connection = null;
 		try {
 			Class.forName("oracle.jdbc.driver.OracleDriver");
-			connection = DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:XE","system","oracle");
-			//connection = DriverManager.getConnection("jdbc:oracle:thin:@13.235.147.120:1521:XE","ajmal","ajmal");
-		} catch (ClassNotFoundException e) {	
-			e.printStackTrace();
+			connection = DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:XE", "system", "oracle");
+			// connection =
+			// DriverManager.getConnection("jdbc:oracle:thin:@13.235.147.120:1521:XE","ajmal","ajmal");
+		} catch (ClassNotFoundException e) {
+			throw new DbException(e.getMessage());
+		} catch (SQLException e) {
+			throw new DbException(e.getMessage());
 		}
-		 
-		 catch (SQLException e) {
-			e.printStackTrace();
-		}
-			
-			return connection;
-		
+		return connection;
 	}
+
 	public static Jdbi getJdbi() {
 		Jdbi jdbi = null;
 		try {

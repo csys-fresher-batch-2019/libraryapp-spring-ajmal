@@ -29,6 +29,6 @@ public interface StudentDAO {
 	public Boolean studentLogin(int studentId, LocalDate studentDOB) throws DbException;
 
 	@SqlQuery("select 1 from student where std_id=?")
-	public Integer checkStudentId(int studentId);
+	public Integer exist(int studentId);
 
 }

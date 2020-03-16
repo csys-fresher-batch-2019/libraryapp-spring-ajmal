@@ -25,7 +25,7 @@ public class TestAddNewStudent {
 		logger.debug("Mobile Number :");
 		long mobileNumber = sc.nextLong();
 		logger.debug("Year Of Joining :");
-		int yearOfJoin = sc.nextInt();
+		int yearOfJoining = sc.nextInt();
 		Date date = Date.valueOf(dateOfBirth);
 
 		StudentService obj = new StudentService();
@@ -35,7 +35,7 @@ public class TestAddNewStudent {
 		ob.setDob(date.toLocalDate());
 		ob.setMailId(studentMailId);
 		ob.setMobileNumber(mobileNumber);
-		ob.setYearOfJoin(yearOfJoin);
+		ob.setYearOfJoining(yearOfJoining);
 
 		obj.addStudentDetails(ob);
 		sc.close();

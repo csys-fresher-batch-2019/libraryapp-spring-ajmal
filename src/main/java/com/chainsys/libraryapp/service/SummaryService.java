@@ -8,9 +8,9 @@ import com.chainsys.libraryapp.dao.BookDAO;
 import com.chainsys.libraryapp.dao.DAOFactory;
 import com.chainsys.libraryapp.dao.StudentDAO;
 import com.chainsys.libraryapp.dao.SummaryDAO;
-import com.chainsys.libraryapp.dto.StudentFineSummary;
-import com.chainsys.libraryapp.dto.SummaryDueDate;
-import com.chainsys.libraryapp.dto.SummaryStudentDetails;
+import com.chainsys.libraryapp.dto.StudentFineSummaryDTO;
+import com.chainsys.libraryapp.dto.SummaryDueDateDTO;
+import com.chainsys.libraryapp.dto.SummaryStudentDetailsDTO;
 import com.chainsys.libraryapp.exception.DbException;
 import com.chainsys.libraryapp.exception.ServiceException;
 import com.chainsys.libraryapp.exception.ValidationException;
@@ -30,7 +30,7 @@ public class SummaryService {
 			Validation.checkStudentId(studentId);
 			Integer bookTaken = summaryDetailsDAO.bookTaken(studentId, bookId);
 			if (bookTaken == null) {
-				summaryDetailsDAO.addNewEntry(studentId, bookId);
+				summaryDetailsDAO.save(studentId, bookId);
 			} else {
 				throw new ServiceException(Constant.YOU_HAVE_ALREADY_TAKEN_THE_BOOK);
 			}
@@ -82,7 +82,7 @@ public class SummaryService {
 		}
 	}
 
-	public List<SummaryDueDate> unReturnedBookDetails(int bookId) throws ServiceException {
+	public List<SummaryDueDateDTO> unReturnedBookDetails(int bookId) throws ServiceException {
 		try {
 			Validation.checkBookId(bookId);
 			return summaryDetailsDAO.unReturnedBookDetails(bookId);
@@ -102,7 +102,7 @@ public class SummaryService {
 		}
 	}
 
-	public List<SummaryStudentDetails> unReturnedStudentBookDetails(int studentId) throws ServiceException {
+	public List<SummaryStudentDetailsDTO> unReturnedStudentBookDetails(int studentId) throws ServiceException {
 		try {
 			Validation.checkStudentId(studentId);
 			return summaryDetailsDAO.unReturnedStudentBookDetails(studentId);
@@ -132,14 +132,14 @@ public class SummaryService {
 		// return bookTaken != null;
 	}
 
-	public List<StudentFineSummary> totalFineAmountOfStudent(int studentId) throws ServiceException {
+	public List<StudentFineSummaryDTO> totalFineAmountOfStudent(int studentId) throws ServiceException {
 
 		LocalDate returnedDate = LocalDate.now();
-		List<StudentFineSummary> out = null;
+		List<StudentFineSummaryDTO> out = null;
 		try {
 			Validation.checkStudentId(studentId);
 			out = summaryDetailsDAO.totalFineAmountOfStudent(studentId);
-			for (StudentFineSummary details : out) {
+			for (StudentFineSummaryDTO details : out) {
 				if (returnedDate.isAfter(details.getDueDate())) {
 					int diffInDays = (int) ChronoUnit.DAYS.between(details.getDueDate(), returnedDate);
 					int fineAmount = diffInDays * 2;

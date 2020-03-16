@@ -19,6 +19,7 @@ import com.chainsys.libraryapp.service.StudentService;
 public class AddNewStudentServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
+	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		StudentService ob = new StudentService();
@@ -38,7 +39,7 @@ public class AddNewStudentServlet extends HttpServlet {
 		obj.setDob(dob.toLocalDate());
 		obj.setMailId(studentMailId);
 		obj.setMobileNumber(mobileNumber);
-		obj.setYearOfJoin(yOfJoin);
+		obj.setYearOfJoining(yOfJoin);
 
 		try {
 			ob.addStudentDetails(obj);
