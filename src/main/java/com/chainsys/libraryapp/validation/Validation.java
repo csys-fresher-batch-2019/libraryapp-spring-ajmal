@@ -4,6 +4,7 @@ import com.chainsys.libraryapp.dao.BookDAO;
 import com.chainsys.libraryapp.dao.DAOFactory;
 import com.chainsys.libraryapp.dao.StudentDAO;
 import com.chainsys.libraryapp.exception.ValidationException;
+import com.chainsys.libraryapp.util.Constant;
 import com.chainsys.libraryapp.util.StringUtil;
 
 public class Validation {
@@ -20,7 +21,7 @@ public class Validation {
 	public static void checkBookId(int bookId) throws ValidationException {
 		Integer cont = bookDetailsDAO.exist(bookId);
 		if (cont == null) {
-			throw new ValidationException("Invalid Book Id");
+			throw new ValidationException(Constant.INVALID_BOOK_ID);
 		}
 	}
 
@@ -33,14 +34,14 @@ public class Validation {
 	public static void checkStudentId(int studentId) throws ValidationException {
 		Integer cont = studentDetailsDAO.exist(studentId);
 		if (cont == null) {
-			throw new ValidationException("Invalid Student Id");
+			throw new ValidationException(Constant.INVALID_STUDENT_ID);
 		}
 	}
 
 	public static void validationSearch(String mailId, String password) throws ValidationException {
 
-		StringUtil.rejectIfInvalid(mailId, "Invalid mailId");
-		StringUtil.rejectIfInvalid(password, "Invalid Password");
+		StringUtil.rejectIfInvalid(mailId, Constant.INVALID_MAIL_ID);
+		StringUtil.rejectIfInvalid(password, Constant.INVALID_PASSWORD);
 
 	}
 

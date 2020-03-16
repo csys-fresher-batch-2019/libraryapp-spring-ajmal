@@ -28,4 +28,10 @@ public class Constant {
 	public static final String UNABLE_TO_SEARCH = "Unable to Search";
 	public static final String UNABLE_TO_LOGIN = "Unable to Login";
 
+	// For Validation
+	public static final String INVALID_PASSWORD = "Invalid Password";
+	public static final String INVALID_MAIL_ID = "Invalid mailId";
+	public static final String INVALID_STUDENT_ID = "Invalid Student Id";
+	public static final String INVALID_BOOK_ID = "Invalid Book Id";
+
 }
