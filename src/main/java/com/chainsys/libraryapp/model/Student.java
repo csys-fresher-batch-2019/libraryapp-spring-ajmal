@@ -5,6 +5,7 @@ import java.time.LocalDate;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
@@ -16,6 +17,7 @@ public class Student {
 	private String mailId;
 	private long mobileNumber;
 	private int yearOfJoin;
+
 	@Override
 	public String toString() {
 		return "Student [id=" + id + ", name=" + name + ", dept=" + dept + ", dob=" + dob + ", mailId=" + mailId

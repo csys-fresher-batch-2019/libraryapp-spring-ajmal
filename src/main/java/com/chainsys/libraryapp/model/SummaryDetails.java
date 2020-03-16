@@ -3,6 +3,7 @@ package com.chainsys.libraryapp.model;
 import java.time.LocalDate;
 
 import lombok.Data;
+
 @Data
 public class SummaryDetails {
 	private int bookCount;
@@ -14,4 +15,3 @@ public class SummaryDetails {
 	private int fineAmount;
 	private int activeStatus;
 }
- 
