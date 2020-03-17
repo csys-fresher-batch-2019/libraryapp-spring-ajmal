@@ -39,10 +39,8 @@ public class Validation {
 	}
 
 	public static void validationSearch(String mailId, String password) throws ValidationException {
-
 		StringUtil.rejectIfInvalid(mailId, Constant.INVALID_MAIL_ID);
 		StringUtil.rejectIfInvalid(password, Constant.INVALID_PASSWORD);
-
 	}
 
 }

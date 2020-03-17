@@ -8,7 +8,7 @@ import org.jdbi.v3.sqlobject.customizer.Bind;
 import org.jdbi.v3.sqlobject.statement.SqlQuery;
 import org.jdbi.v3.sqlobject.statement.SqlUpdate;
 
-import com.chainsys.libraryapp.dao.mapper.StudentStudentFineRowMapper;
+import com.chainsys.libraryapp.dao.mapper.StudentFineRowMapper;
 import com.chainsys.libraryapp.dao.mapper.SummaryDueDateRowMapper;
 import com.chainsys.libraryapp.dao.mapper.SummaryStudentDetailsRowMapper;
 import com.chainsys.libraryapp.dto.StudentFineSummaryDTO;
@@ -44,7 +44,7 @@ public interface SummaryDAO {
 	public Integer bookTaken(int studentId, int bookId) throws DbException;
 
 	@SqlQuery("select  s.std_name,b.book_name,b.book_id,b.book_cat,d.issue_date,d.due_date from details d,books b ,student s where s.std_id=d.std_id and d.status=0 and b.book_id=d.book_id and d.std_id=?")
-	@RegisterRowMapper(StudentStudentFineRowMapper.class)
+	@RegisterRowMapper(StudentFineRowMapper.class)
 	public List<StudentFineSummaryDTO> totalFineAmountOfStudent(int studentId) throws DbException;
 
 	@SqlQuery("select fn_rem_bks(?) as total from dual")
